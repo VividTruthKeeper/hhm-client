@@ -12,8 +12,15 @@
   position: relative;
 
   h1 {
-    font-size: 2rem;
-    color: $white;
+    height: 100%;
+    a {
+      font-size: 2rem;
+      color: $white;
+      display: block;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -50,6 +57,125 @@
         padding: 1.6rem 0;
         font-size: 1.6rem;
         color: $white;
+      }
+    }
+  }
+}
+
+// SUBHEADER
+
+.subheader-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.subheader-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  li {
+    a,
+    div {
+      padding: 1.2rem;
+    }
+
+    a {
+      font-size: 1.6rem;
+      color: $black;
+    }
+  }
+}
+
+#time {
+  display: flex;
+  flex-direction: column;
+  .time {
+    font-size: 2.4rem;
+    color: $black;
+    text-align: center;
+  }
+
+  .date {
+    font-size: 1.2rem;
+    color: $black;
+    text-align: center;
+  }
+}
+
+.subheader-mid {
+  width: 10rem;
+  height: 7.2rem;
+}
+
+.subheader-right {
+  min-height: 7.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+// LANGUAGE
+.language-wrapper {
+  height: 100%;
+}
+
+.language-trig {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  span {
+    font-size: 1.6rem;
+    color: $black;
+  }
+
+  div {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+// SEARCH
+.search-wrapper {
+  form {
+    position: relative;
+    width: 100%;
+    max-width: 32rem;
+    background: transparent;
+    display: block;
+    border: 0.1rem solid $gray;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    input {
+      font-size: 1.6rem;
+      color: $black;
+    }
+
+    div {
+      pointer-events: none;
+      display: none;
+      background: transparent;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      img {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+
+      span {
+        font-size: 1.6rem;
+        color: $gray;
       }
     }
   }
