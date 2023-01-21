@@ -9,6 +9,7 @@ import { ReactComponent as ArrowDownBlack } from '../../assets/icons/arrow-down-
 
 // Components
 import SearchForm from './SearchForm';
+import ClockDate from './ClockDate';
 
 const SubHeader = () => {
   return (
@@ -17,10 +18,7 @@ const SubHeader = () => {
         <div className="subheader-inner">
           <ul className="subheader-left">
             <li>
-              <div id="time">
-                <span className="time">12:30</span>
-                <span className="date">14 февраля</span>
-              </div>
+              <ClockDate />
             </li>
             <li>
               <Link to="/">Туркменистан</Link>
