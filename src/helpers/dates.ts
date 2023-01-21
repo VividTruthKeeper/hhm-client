@@ -6,3 +6,10 @@ export const clockParser = (date: Date) => {
     })
     .split(' ')[1];
 };
+
+export const dateParser = (date: Date) => {
+  return date.toLocaleDateString('ru', {
+    month: 'long',
+    day: 'numeric',
+  });
+};

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 // Helpers
-import { clockParser } from '../../helpers/clockParser';
+import { clockParser, dateParser } from '../../helpers/dates';
 
 const ClockDate = () => {
   const [date, setDate] = useState<Date>(new Date());
@@ -12,7 +12,7 @@ const ClockDate = () => {
   return (
     <div id="time">
       <span className="time">{clockParser(date)}</span>
-      <span className="date">14 февраля</span>
+      <span className="date">{dateParser(date)}</span>
     </div>
   );
 };
