@@ -16,7 +16,7 @@ const data: navListDataType = [
 ];
 const Nav = () => {
   return (
-    <div className="nav">
+    <nav className="nav">
       <div className="container">
         <div className="nav-inner">
           <ul>
@@ -28,7 +28,7 @@ const Nav = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

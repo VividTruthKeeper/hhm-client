@@ -1,15 +1,15 @@
 // Components
-import SupHeader from "./SupHeader";
-import Nav from "./Nav";
-import SubHeader from "./SubHeader";
+import SupHeader from './SupHeader';
+import Nav from './Nav';
+import SubHeader from './SubHeader';
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <SupHeader />
       <SubHeader />
       <Nav />
-    </div>
+    </header>
   );
 };
 
