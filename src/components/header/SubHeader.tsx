@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 
 // Icons
-import ArrowDownBlack from '../../assets/icons/arrow-down-black.svg';
+import { ReactComponent as ArrowDownBlack } from '../../assets/icons/arrow-down-black.svg';
 
 // Components
 import SearchForm from './SearchForm';
@@ -40,7 +40,7 @@ const SubHeader = () => {
               <div className="language-trig">
                 <span>EN</span>
                 <div>
-                  <img src={ArrowDownBlack} alt="" />
+                  <ArrowDownBlack />
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Icons
-import LoopGray from '../../assets/icons/loop-gray.svg';
+import { ReactComponent as LoopGray } from '../../assets/icons/loop-gray.svg';
 
 // Animations
 import { searchFormAnimation } from '../../animations/header.animations';
@@ -19,7 +19,7 @@ const SearchForm = () => {
         <motion.div
           initial={'rest'}
           animate={input.length > 0 ? searchFormAnimation.hover : searchFormAnimation.rest}>
-          <img src={LoopGray} alt="" />
+          <LoopGray />
           <span>Search anything</span>
         </motion.div>
         <input
