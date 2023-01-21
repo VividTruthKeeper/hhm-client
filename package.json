@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "@types/uuid": "^9.0.0",
     "axios": "^1.2.3",
     "framer-motion": "^8.5.0",
