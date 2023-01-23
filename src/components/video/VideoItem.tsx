@@ -1,3 +1,6 @@
+// Modules
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // Types
 import { videoItemType } from "../../types/video.types";
 
@@ -6,7 +9,7 @@ const VideoItem = ({ img, date, title }: videoItemType) => {
     <div className="video-item">
       <div className="video-item-top">
         <div className="video-img">
-          <img src={img} alt="" />
+          <LazyLoadImage src={img} effect="blur" useIntersectionObserver />
         </div>
       </div>
       <div className="video-item-bottom">

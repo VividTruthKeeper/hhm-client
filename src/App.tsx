@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 
 // Styles
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "./styles/style.scss";
 
 // Pages
