@@ -53,3 +53,28 @@
     line-height: 2.2rem;
   }
 }
+
+.video-link {
+  max-width: fit-content;
+  border-radius: 0.5rem;
+  background: $main;
+  .inner {
+    font-size: 1.6rem;
+    color: $white;
+    padding: 0.8rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
+  }
+
+  .arrow-div {
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

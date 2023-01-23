@@ -1,11 +1,19 @@
 // Modules
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Components
 import VideoItem from "./VideoItem";
 
 // Images
 import VideoItemImg from "../../assets/images/video-item.jpg";
+
+// Icons
+import { ReactComponent as ArrowRightWhite } from "../../assets/icons/arrow-right-white.svg";
+
+// Animations
+import { videoArrowMotion } from "../../animations/video.animations";
 
 const Video = () => {
   const date = "11.01.2023";
@@ -33,6 +41,14 @@ const Video = () => {
               );
             })}
           </div>
+          <Link to="/videos" className="video-link">
+            <motion.div initial={"rest"} whileHover={"hover"} className="inner">
+              <span>Показать все видео</span>
+              <motion.div className="arrow-div" variants={videoArrowMotion}>
+                <ArrowRightWhite />
+              </motion.div>
+            </motion.div>
+          </Link>
         </div>
       </div>
     </section>
