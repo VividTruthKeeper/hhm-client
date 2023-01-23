@@ -2,7 +2,6 @@
 import { Routes, Route } from "react-router-dom";
 
 // Styles
-import "react-image-crop/src/ReactCrop.scss";
 import "./styles/style.scss";
 
 // Pages

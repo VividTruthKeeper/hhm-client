@@ -1,17 +1,17 @@
-// Images
-import VideoItemImg from "../../assets/images/video-item.jpg";
+// Types
+import { videoItemType } from "../../types/video.types";
 
-const VideoItem = () => {
+const VideoItem = ({ img, date, title }: videoItemType) => {
   return (
     <div className="video-item">
       <div className="video-item-top">
         <div className="video-img">
-          <img src={VideoItemImg} alt="" />
+          <img src={img} alt="" />
         </div>
       </div>
       <div className="video-item-bottom">
-        <span>11.01.2023</span>
-        <h5>В Туркменистане отметили Новый год</h5>
+        <span>{date}</span>
+        <h5>{title}</h5>
       </div>
     </div>
   );
