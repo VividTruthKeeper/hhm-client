@@ -4,3 +4,8 @@ $white: #ffffff;
 $black: #272727;
 $red: #e53131;
 $gray: #a6a6a6;
+
+@mixin wh100 {
+  width: 100%;
+  height: 100%;
+}
