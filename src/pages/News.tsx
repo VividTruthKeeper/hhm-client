@@ -1,5 +1,6 @@
 // Components
 import NewsItem from '../components/news/NewsItem';
+import Aside from '../components/global/Aside';
 
 const News = () => {
   return (
@@ -7,6 +8,7 @@ const News = () => {
       <div className="container">
         <div className="news-inner">
           <NewsItem />
+          <Aside />
         </div>
       </div>
     </main>
