@@ -39,3 +39,21 @@
   font-weight: bold;
   font-size: 1rem;
 }
+
+.aside-btn {
+  cursor: pointer;
+  color: $main;
+  border: 0.1rem $main solid;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+
+  svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
