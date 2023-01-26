@@ -1,3 +1,6 @@
+// Modules
+import { Link } from 'react-router-dom';
+
 interface Props {
   title: string;
   category: string;
@@ -5,10 +8,10 @@ interface Props {
 
 const AsideItem = ({ title, category }: Props) => {
   return (
-    <div className="aside-item">
+    <Link to="/news/1" className="aside-item">
       <h3 className="aside-item-category">{category}</h3>
       <h2 className="aside-item-title">{title}</h2>
-    </div>
+    </Link>
   );
 };
 
