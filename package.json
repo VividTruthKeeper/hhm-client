@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/react-calendar": "^3.9.0",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/uuid": "^9.0.0",
     "axios": "^1.2.3",

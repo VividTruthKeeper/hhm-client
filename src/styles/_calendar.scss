@@ -1,0 +1,97 @@
+.calendar {
+  display: flex;
+  justify-content: center;
+}
+
+.react-calendar__navigation__label {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next2-button,
+.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button {
+  display: none;
+}
+
+.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+  text-transform: capitalize;
+}
+
+.react-calendar {
+  border: none;
+}
+
+.react-calendar__month-view__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 2.4rem;
+}
+.react-calendar__month-view__weekdays__weekday {
+  text-transform: capitalize;
+  color: $main;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+}
+
+.react-calendar__tile.react-calendar__month-view__days__day {
+  font-size: 1.6rem;
+  color: $black;
+}
+
+.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth {
+  color: $dark-gray;
+}
+
+.react-calendar__tile--active {
+  // background: $red;
+  color: $white !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: $black;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 2.4rem;
+  row-gap: 1.1rem;
+}
+
+.react-calendar__tile {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-calendar__tile--now:enabled:hover {
+  background: $red;
+  color: $white !important;
+}
+
+.react-calendar__tile--now:enabled:focus {
+  background: $blue;
+  color: $white !important;
+}
+
+.react-calendar__tile--now {
+  background: $red;
+  color: $white !important;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next-button {
+  display: block;
+  background: url('../assets/icons/stroke-right-black.svg') no-repeat center;
+  color: transparent;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
+  display: block;
+  background: url('../assets/icons/stroke-left-black.svg') no-repeat center;
+  color: transparent;
+}
