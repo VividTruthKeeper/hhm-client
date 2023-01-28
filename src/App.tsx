@@ -9,9 +9,13 @@ import "./styles/style.scss";
 // Pages
 import Main from "./pages/Main";
 
+// Components
+import Header from "./components/header/Header";
+
 const App = () => {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>

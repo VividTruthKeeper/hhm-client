@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 html {
@@ -47,7 +47,7 @@ abbr[title] {
 .container {
   height: 100%;
   width: 100%;
-  max-width: 131rem;
+  max-width: 140rem;
   padding: 0 4rem;
   margin: 0 auto;
 }
