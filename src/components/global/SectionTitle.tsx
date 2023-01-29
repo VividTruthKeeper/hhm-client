@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Types
 interface Props {
-  givenClass: string;
+  givenClass?: string;
   title: string;
   linkData?: {
     title: string;
@@ -13,7 +13,7 @@ interface Props {
 
 const SectionTitle: React.FC<Props> = ({ givenClass, title, linkData }) => {
   return (
-    <div className={`${givenClass}-title`}>
+    <div className={`${givenClass ? givenClass + "-title" : ""} section-title`}>
       <h2>{title}</h2>
       {linkData ? <Link to={linkData.link}>{linkData.title}</Link> : null}
     </div>
