@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: "Raleway", sans-serif;
+  @include roboto;
 }
 
 html {
@@ -52,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif;
+  @include raleway;
 }
 
 .container {
