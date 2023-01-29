@@ -72,7 +72,8 @@
   overflow-x: auto;
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 2.4rem;
+  justify-content: space-between;
 
   li {
     color: $black;
@@ -81,7 +82,7 @@
     display: block;
     white-space: nowrap;
     padding: 1rem;
-    font-size: inherit;
+    font-size: 1.6rem;
     color: inherit;
   }
 }

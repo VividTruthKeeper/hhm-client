@@ -88,7 +88,7 @@ const SubNav = () => {
                   whileHover={linkMotion.linkHover}
                 >
                   <Link
-                    to={`/category${subNavEl.link}`}
+                    to="/"
                     onClick={() => onClickLink(index + 1)}
                     className={activeLink === index + 1 ? "active" : ""}
                   >

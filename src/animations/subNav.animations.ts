@@ -1,6 +1,7 @@
 export const linkMotion = {
   rest: {
     background: "rgba(56,163,157, 0)",
+    type: "tween",
   },
   active: {
     background: "rgba(56,163,157, 1)",
@@ -8,9 +9,9 @@ export const linkMotion = {
     type: "spring",
   },
   linkRest: {
-    fontSize: "1.6rem",
+    type: "tween",
   },
   linkHover: {
-    fontSize: "1.7rem",
+    type: "spring",
   },
 };
