@@ -5,3 +5,8 @@
 @mixin roboto {
   font-family: "Roboto", sans-serif;
 }
+
+@mixin wh100 {
+  width: 100%;
+  height: 100%;
+}

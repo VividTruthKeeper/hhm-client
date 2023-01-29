@@ -1,0 +1,42 @@
+.videos {
+  padding: 5.6rem 0;
+}
+
+.videos-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.videos-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+}
+
+.videos-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  @include wh100;
+}
+
+.videos-item-video {
+  min-height: 17.5rem;
+}
+
+.videos-item-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  span {
+    font-size: 1.2rem;
+    color: $black;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: $black;
+  }
+}
