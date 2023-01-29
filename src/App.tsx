@@ -11,6 +11,7 @@ import Main from "./pages/Main";
 
 // Components
 import Header from "./components/header/Header";
+import Videos from "./components/videos/Videos";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>
+      <Videos />
     </div>
   );
 };
