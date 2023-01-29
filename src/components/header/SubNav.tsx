@@ -83,10 +83,7 @@ const SubNav = () => {
                   activeLink === index + 1 ? linkMotion.active : linkMotion.rest
                 }
               >
-                <motion.div
-                  initial={linkMotion.linkRest}
-                  whileHover={linkMotion.linkHover}
-                >
+                <motion.div>
                   <Link
                     to="/"
                     onClick={() => onClickLink(index + 1)}
