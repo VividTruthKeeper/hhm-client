@@ -1,0 +1,56 @@
+.footer {
+  background: $main;
+  padding: 4.8rem 0;
+  color: $white;
+  font-size: 1.8rem;
+  @include roboto;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.footer-nav-list-item {
+  a {
+    font-size: 1.8rem;
+    color: $white;
+    @include roboto;
+    font-weight: 400;
+  }
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.footer-info-item {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+
+  &:nth-child(3) {
+    align-items: flex-start;
+  }
+  &:nth-child(4),
+  &:nth-child(5) {
+    padding-left: 4.8rem;
+  }
+}
+
+.footer-info-item-title {
+  font-size: 1.8rem;
+  color: $white;
+  @include roboto;
+  font-weight: 400;
+  max-width: 37rem;
+}
