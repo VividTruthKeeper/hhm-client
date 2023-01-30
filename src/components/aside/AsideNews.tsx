@@ -24,7 +24,7 @@ const AsideNews = ({ title, category, date, img, link }: Props) => {
         <div className="aside-news-info">
           <div className="aside-news-info-inner">
             <div className="aside-news-status">
-              <NewsCategory title={(category = '')} link="" />
+              <NewsCategory title="политика" link="" />
               <NewsDate date={date} />
             </div>
             <h2 className="aside-news-title">{title}</h2>
