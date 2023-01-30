@@ -2,7 +2,7 @@
   padding: 3rem 0;
   display: grid;
   align-items: center;
-  grid-template-columns: minmax(20rem, 40rem) auto auto;
+  grid-template-columns: repeat(3, auto);
   gap: 2.4rem;
   justify-content: space-between;
   border-bottom: 0.1rem solid $black;
