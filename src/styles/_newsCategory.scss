@@ -1,7 +1,8 @@
-.news-link {
+.news-category {
+  display: inline-block;
   color: $main;
-  display: flex;
-  align-items: center;
+  text-transform: uppercase;
+  font-weight: 400;
   font-size: 1.4rem;
-  gap: 0.8rem;
+  @include roboto;
 }

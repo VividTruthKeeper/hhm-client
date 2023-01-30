@@ -29,13 +29,12 @@
   justify-content: space-between;
 }
 
-.news-category {
-  display: inline-block;
+.news-link {
   color: $main;
-  text-transform: uppercase;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
   font-size: 1.4rem;
-  @include roboto;
+  gap: 0.8rem;
 }
 
 .news-text {
