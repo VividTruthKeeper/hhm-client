@@ -13,8 +13,6 @@ import Main from './pages/Main';
 import Header from './components/header/Header';
 import Videos from './components/videos/Videos';
 import Footer from './components/footer/Footer';
-import News from './components/news/News';
-import NewsScroll from './components/global/NewsScroll';
 
 const App = () => {
   return (
@@ -24,7 +22,6 @@ const App = () => {
         <Route path="/" element={<Main />} />
       </Routes>
       <Videos />
-      <NewsScroll />
       <Footer />
     </div>
   );
