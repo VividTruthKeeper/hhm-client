@@ -1,0 +1,44 @@
+.aside-news-wrapper {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.aside-news-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.aside-news-info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.aside-news-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  @include raleway;
+}
+
+.aside-news-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aside-news-category {
+  display: inline-block;
+  color: $main;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.4rem;
+  @include roboto;
+}
+
+.aside-news-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $body;
+}
