@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 // Types
-import { ActiveLinkType } from "../../types/store.types";
+import { ActiveLinkType, RootState } from "../../types/store.types";
 
 // Actions
 import { setActiveLink } from "../../actions/setActiveLink.action";
@@ -61,8 +61,8 @@ const subNavData: subNavDataType[] = [
 ];
 
 const SubNav = () => {
-  const activeLink = useSelector<ActiveLinkType, ActiveLinkType["active"]>(
-    (state) => state.active
+  const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
+    (state) => state.activeLink.active
   );
   const dispatch = useDispatch();
 
