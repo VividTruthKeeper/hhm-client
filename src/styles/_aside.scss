@@ -1,17 +1,26 @@
 .aside {
-  background: $gray;
-  padding: 2.4rem 1.6rem;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
 }
 
 .aside-wrapper {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  background: $gray;
+  padding: 2.4rem 1.6rem;
 }
 
 .aside-inner {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+.aside-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,8 +1,9 @@
 // Components
-import SectionTitle from '../global/SectionTitle';
-import AsideNews from './AsideNews';
+import SectionTitle from "../global/SectionTitle";
+import AsideNews from "./AsideNews";
+import Calendar from "./Calendar";
 // Images
-import placeholder2 from '../../assets/images/placeholder2.png';
+import placeholder2 from "../../assets/images/placeholder2.png";
 
 const Aside = () => {
   return (
@@ -46,6 +47,9 @@ const Aside = () => {
             link=""
           />
         </div>
+      </div>
+      <div className="aside-calendar">
+        <Calendar />
       </div>
     </div>
   );

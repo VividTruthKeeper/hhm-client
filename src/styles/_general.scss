@@ -46,6 +46,11 @@ abbr[title] {
   text-decoration: none;
 }
 
+abbr {
+  width: 2rem;
+  text-align: center;
+}
+
 h1,
 h2,
 h3,
@@ -61,4 +66,14 @@ h6 {
   max-width: 140rem;
   padding: 0 4rem;
   margin: 0 auto;
+}
+
+.react-calendar__month-view__days {
+  column-gap: 1.8rem;
+}
+
+.react-calendar__tile {
+  abbr {
+    width: 100%;
+  }
 }
