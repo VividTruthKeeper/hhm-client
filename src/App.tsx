@@ -1,19 +1,20 @@
 // Modules
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 // Styles
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-calendar/dist/Calendar.css';
-import './styles/style.scss';
+import "react-lazy-load-image-component/src/effects/blur.css";
+import "react-calendar/dist/Calendar.css";
+import "./styles/style.scss";
 
 // Pages
-import Main from './pages/Main';
-import NewsArticle from './pages/NewsArticle';
+import Main from "./pages/Main";
+import NewsArticle from "./pages/NewsArticle";
+import Category from "./pages/Category";
 
 // Components
-import Header from './components/header/Header';
-import Videos from './components/videos/Videos';
-import Footer from './components/footer/Footer';
+import Header from "./components/header/Header";
+import Videos from "./components/videos/Videos";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -21,8 +22,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-      </Routes>
-      <Routes>
+        <Route path="/category/:category" element={<Category />} />
         <Route path="/news/:id" element={<NewsArticle />} />
       </Routes>
       <Videos />
