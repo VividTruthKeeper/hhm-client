@@ -1,3 +1,5 @@
+// Modules
+import { Link } from "react-router-dom";
 // Icons
 import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
 import { ReactComponent as Instagram } from "../../assets/icons/insta-black.svg";
@@ -18,7 +20,9 @@ const Nav = () => {
             <LanguageSelect />
           </div>
           <div className="nav-mid">
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
           <div className="nav-right">
             <ul>
