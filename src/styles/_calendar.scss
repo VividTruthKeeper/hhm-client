@@ -100,4 +100,7 @@
 .react-calendar__decade-view__years__year,
 .react-calendar__century-view__decades__decade {
   border-radius: 0;
+  abbr {
+    width: 100%;
+  }
 }
