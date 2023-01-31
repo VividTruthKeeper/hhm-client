@@ -40,9 +40,22 @@ const LanguageSelect = () => {
     dispatch(setLanguage(title));
   };
   return (
-    <div className="language" onClick={() => setDropdown(!dropdown)}>
+    <motion.div
+      className="language"
+      onClick={() => setDropdown(!dropdown)}
+      initial={"wrapperRest"}
+      animate={dropdown ? "wrapperActive" : "wrapperRest"}
+      variants={languageMotion}
+    >
       <span>{activeLanguage}</span>
-      <ArrowDownBlack />
+      <motion.div
+        className="icon-wrapper"
+        initial={"arrowRest"}
+        animate={dropdown ? "arrowActive" : "arrowRest"}
+        variants={languageMotion}
+      >
+        <ArrowDownBlack />
+      </motion.div>
       <motion.ul
         className="language-dropdown"
         variants={languageMotion}
@@ -70,7 +83,7 @@ const LanguageSelect = () => {
           );
         })}
       </motion.ul>
-    </div>
+    </motion.div>
   );
 };
 
