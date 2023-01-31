@@ -87,6 +87,10 @@
       cursor: pointer;
     }
   }
+  box-shadow: 0.1rem 0rem 0.02rem rgba(0, 0, 0, 0.1),
+    -0.1rem 0rem 0.02rem rgba(0, 0, 0, 0.1),
+    0rem 0.1rem 0.02rem rgba(0, 0, 0, 0.1),
+    0rem -0.1rem 0.02rem rgba(0, 0, 0, 0.1);
 }
 
 .subnav-inner {
