@@ -8,6 +8,7 @@ import './styles/style.scss';
 
 // Pages
 import Main from './pages/Main';
+import NewsArticle from './pages/NewsArticle';
 
 // Components
 import Header from './components/header/Header';
@@ -20,6 +21,9 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+      </Routes>
+      <Routes>
+        <Route path="/news" element={<NewsArticle />} />
       </Routes>
       <Videos />
       <Footer />
