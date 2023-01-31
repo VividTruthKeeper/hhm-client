@@ -1,0 +1,57 @@
+.news-article-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.4rem;
+}
+.news-article-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.news-article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.news-article-status {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.news-article-category {
+  @include roboto;
+  color: $main;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.news-article-date {
+  color: $body;
+  font-size: 1.4rem;
+  font-weight: 400;
+  @include roboto;
+}
+
+.news-article-title {
+  @include raleway;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: $black;
+}
+
+.news-article-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-article-text {
+  @include roboto;
+  color: $body;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
