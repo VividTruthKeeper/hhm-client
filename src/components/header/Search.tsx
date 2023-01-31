@@ -28,9 +28,7 @@ const Search = () => {
         animate={input.length > 0 ? "active" : "rest"}
         variants={searchMotion}
       >
-        <motion.svg>
-          <Loop />
-        </motion.svg>
+        <Loop />
         <span>Search anything...</span>
       </motion.div>
     </form>
