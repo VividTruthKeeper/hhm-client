@@ -1,5 +1,6 @@
 // Modules
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 // Images
 import { ReactComponent as ArrRight } from '../../assets/icons/arrow-right.svg';
 // Components
@@ -19,7 +20,7 @@ const AsideNews = ({ title, category, date, img, link }: Props) => {
     <div className="aside-news">
       <div className="aside-news-wrapper">
         <div className="aside-news-image">
-          <img src={img} alt="img" />
+          <LazyLoadImage src={img} alt="image" useIntersectionObserver effect="blur" />
         </div>
         <div className="aside-news-info">
           <div className="aside-news-info-inner">
