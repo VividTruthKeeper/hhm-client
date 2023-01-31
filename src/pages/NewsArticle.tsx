@@ -1,3 +1,5 @@
+// Modules
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 // Components
 import Aside from '../components/aside/Aside';
 // Images
@@ -20,7 +22,7 @@ const NewsArticle = () => {
               </h2>
             </div>
             <div className="news-article-image">
-              <img src={placeholder} alt="image" />
+              <LazyLoadImage src={placeholder} alt="image" useIntersectionObserver effect="blur" />
             </div>
             <p className="news-article-text">
               Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum urna tincidunt diam
