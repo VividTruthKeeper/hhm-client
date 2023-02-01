@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 1.6rem;
 }
 
 .news-info-inner {
@@ -41,4 +42,8 @@
   font-size: 1.4rem;
   font-weight: 400;
   color: $body;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
