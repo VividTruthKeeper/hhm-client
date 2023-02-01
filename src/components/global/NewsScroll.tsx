@@ -4,11 +4,18 @@ import SectionTitle from './SectionTitle';
 // Images
 import placeholder from '../../assets/images/placeholder.jpg';
 
-const NewsScroll = () => {
+// Interface
+interface Props {
+  state: boolean;
+}
+
+const NewsScroll = ({ state }: Props) => {
   return (
     <div className="news-scroll">
       <div className="news-scroll-wrapper">
-        <SectionTitle title="Лента новостей" linkData={{ link: '/', title: 'Посмотреть все' }} />
+        {state === true ? (
+          <SectionTitle title="Лента новостей" linkData={{ link: '/', title: 'Посмотреть все' }} />
+        ) : null}
         <div className="news-scroll-inner">
           <News
             title="Президент Туркменистана провёл рабочее совещание по цифровой системе"

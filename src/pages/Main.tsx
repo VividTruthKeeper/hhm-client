@@ -7,7 +7,7 @@ const Main = () => {
       <div className="news-section">
         <div className="container">
           <div className="news-inner">
-            <NewsScroll />
+            <NewsScroll state={true} />
             <Aside />
           </div>
         </div>
