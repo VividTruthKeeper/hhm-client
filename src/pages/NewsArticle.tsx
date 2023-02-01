@@ -4,6 +4,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Aside from '../components/aside/Aside';
 // Images
 import placeholder from '../assets/images/placeholder3.png';
+// Icons
+import share from '../assets/icons/share.svg';
+import { ReactComponent as Share } from '../assets/icons/share.svg';
 
 const NewsArticle = () => {
   return (
@@ -54,6 +57,9 @@ const NewsArticle = () => {
               dolor sit amet consectetur. Vestibulum eget elementum urna tincidunt diam commodo
               mauris ac sodales.
             </p>
+            <button className="share-btn">
+              <Share /> <span>Поделиться</span>
+            </button>
           </div>
           <Aside />
         </div>

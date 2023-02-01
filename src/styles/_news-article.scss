@@ -60,3 +60,16 @@
   font-size: 1.8rem;
   font-weight: 400;
 }
+
+.share-btn {
+  background: $main;
+  color: $white;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  @include raleway;
+  font-size: 1.6rem;
+  gap: 1rem;
+  cursor: pointer;
+}
