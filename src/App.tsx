@@ -13,7 +13,6 @@ import Category from "./pages/Category";
 
 // Components
 import Header from "./components/header/Header";
-import Videos from "./components/videos/Videos";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
@@ -25,7 +24,7 @@ const App = () => {
         <Route path="/category/:category" element={<Category />} />
         <Route path="/news/:id" element={<NewsArticle />} />
       </Routes>
-      <Videos />
+
       <Footer />
     </div>
   );

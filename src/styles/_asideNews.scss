@@ -20,6 +20,10 @@
   font-size: 1.6rem;
   font-weight: 700;
   @include raleway;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .aside-news-status {

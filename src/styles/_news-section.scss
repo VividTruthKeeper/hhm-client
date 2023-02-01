@@ -1,5 +1,11 @@
-.news-inner {
+.news-outer-wrapper {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2.4rem;
+}
+
+.news-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
 }
