@@ -22,6 +22,10 @@
   font-size: 2.4rem;
   font-weight: 700;
   @include raleway;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .news-status {
@@ -46,4 +50,48 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .news-wrapper {
+    flex-direction: column;
+  }
+
+  .news-image {
+    width: 100%;
+    height: 16rem;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    span {
+      display: block !important;
+    }
+  }
+
+  .news-title {
+    font-size: 1.6rem;
+  }
+
+  .news-text {
+    display: none;
+  }
+
+  .new-status {
+    order: 1;
+  }
+
+  .news-info {
+    align-items: start;
+  }
+
+  .news-link {
+    display: none;
+  }
 }

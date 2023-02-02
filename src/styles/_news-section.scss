@@ -9,3 +9,9 @@
   flex-direction: column;
   gap: 5.6rem;
 }
+
+@media (max-width: 1024px) {
+  .news-outer-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
