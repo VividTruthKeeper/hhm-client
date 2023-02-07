@@ -7,8 +7,9 @@ import Placeholder from '../../assets/images/placeholder3.png';
 // Components
 import ContentItem from './ContentItem';
 import SectionTitle from '../global/SectionTitle';
+import ContentSlider from './ContentSlider';
 
-const titlePlaceholder =
+export const titlePlaceholder =
   'Полезная информация для поступающих на программы подготовки научных кадров в Туркменистане';
 
 const MainContent = () => {
@@ -17,6 +18,7 @@ const MainContent = () => {
       <LazyLoadComponent useIntersectionObserver>
         <div className="main-content">
           <SectionTitle title="Главное" />
+          <ContentSlider />
           <div className="main-content-top">
             <ContentItem type="big" img={Placeholder} title={titlePlaceholder} />
             <ContentItem img={Placeholder} title={titlePlaceholder} />
