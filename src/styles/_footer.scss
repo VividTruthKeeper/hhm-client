@@ -54,3 +54,21 @@
   font-weight: 400;
   max-width: 37rem;
 }
+
+@media (max-width: 800px) {
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .footer-nav-list {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-nav-list {
+    grid-template-columns: repeat(2, auto);
+    column-gap: 2.4rem;
+  }
+}
