@@ -9,6 +9,7 @@
 .footer-wrapper {
   display: flex;
   justify-content: space-between;
+  gap: 2.4rem;
 }
 
 .footer-nav-list {
@@ -20,6 +21,8 @@
 
 .footer-nav-list-item {
   a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 1.8rem;
     color: $white;
     @include roboto;
@@ -55,7 +58,7 @@
   max-width: 37rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .footer-wrapper {
     flex-direction: column;
     gap: 4rem;
@@ -66,9 +69,15 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .footer-nav-list {
     grid-template-columns: repeat(2, auto);
     column-gap: 2.4rem;
   }
 }
+
+// @media (max-width: 390px) {
+//   .footer-nav-list {
+//     grid-template-columns: auto;
+//   }
+// }
