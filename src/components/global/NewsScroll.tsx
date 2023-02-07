@@ -6,14 +6,14 @@ import placeholder from '../../assets/images/placeholder.jpg';
 
 // Interface
 interface Props {
-  state: boolean;
+  sectionTitle: boolean;
 }
 
-const NewsScroll = ({ state }: Props) => {
+const NewsScroll = ({ sectionTitle }: Props) => {
   return (
     <div className="news-scroll">
       <div className="news-scroll-wrapper">
-        {state === true ? (
+        {sectionTitle === true ? (
           <SectionTitle title="Лента новостей" linkData={{ link: '/', title: 'Посмотреть все' }} />
         ) : null}
         <div className="news-scroll-inner">
@@ -23,7 +23,6 @@ const NewsScroll = ({ state }: Props) => {
             date="12.01.2023"
             category="Политика"
             img={placeholder}
-            link=""
           />
           <News
             title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
@@ -31,7 +30,6 @@ const NewsScroll = ({ state }: Props) => {
             date="12.01.2023"
             category="Политика"
             img={placeholder}
-            link=""
           />
           <News
             title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
@@ -39,7 +37,6 @@ const NewsScroll = ({ state }: Props) => {
             date="12.01.2023"
             category="Политика"
             img={placeholder}
-            link=""
           />
           <News
             title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
@@ -47,7 +44,6 @@ const NewsScroll = ({ state }: Props) => {
             date="12.01.2023"
             category="Политика"
             img={placeholder}
-            link=""
           />
           <News
             title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
@@ -55,7 +51,6 @@ const NewsScroll = ({ state }: Props) => {
             date="12.01.2023"
             category="Политика"
             img={placeholder}
-            link=""
           />
         </div>
       </div>
