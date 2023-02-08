@@ -1,16 +1,12 @@
 // Modules
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface Props {
   title: string;
 }
 
 const NewsCategory = ({ title }: Props) => {
-  return (
-    <Link to={`/category/asd`} className="news-category">
-      {title}
-    </Link>
-  );
+  return <span className="news-category">{title}</span>;
 };
 
 export default NewsCategory;

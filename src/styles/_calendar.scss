@@ -19,6 +19,7 @@
 
 .react-calendar {
   border: none;
+  line-height: unset;
 }
 
 .react-calendar__month-view__weekdays {
@@ -86,13 +87,13 @@
 
 .react-calendar__navigation__arrow.react-calendar__navigation__next-button {
   display: block;
-  background: url("../assets/icons/stroke-right-black.svg") no-repeat center;
+  background: url('../assets/icons/stroke-right-black.svg') no-repeat center;
   color: transparent;
 }
 
 .react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
   display: block;
-  background: url("../assets/icons/stroke-left-black.svg") no-repeat center;
+  background: url('../assets/icons/stroke-left-black.svg') no-repeat center;
   color: transparent;
 }
 

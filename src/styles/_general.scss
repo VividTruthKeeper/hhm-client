@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 * {
   margin: 0;
@@ -70,4 +70,10 @@ h6 {
 
 .react-calendar__month-view__days {
   column-gap: 1.8rem;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 0 1.5rem;
+  }
 }

@@ -1,3 +1,119 @@
 .main {
   padding: 5.6rem 0;
 }
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.main-content-top {
+  display: grid;
+  grid-template-columns: calc(67% - 1.2rem) calc(33% - 1.2rem);
+  gap: 2.4rem;
+  height: 40rem;
+}
+
+.main-content-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.4rem;
+  height: 23.7rem;
+}
+
+.main-content-item {
+  position: relative;
+  @include wh100;
+  overflow: hidden;
+
+  span {
+    display: block !important;
+    @include wh100;
+  }
+
+  img {
+    @include wh100;
+    object-fit: cover;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include wh100;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    padding: 1.6rem;
+    align-items: flex-end;
+    z-index: 2;
+
+    h2 {
+      color: $white;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__big {
+    &-overlay {
+      padding: 2.4rem;
+    }
+    h2 {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.main-content-slider {
+  display: none;
+}
+
+.swiper-wrapper {
+  padding-bottom: 4rem;
+}
+
+.swiper-pagination {
+  bottom: 0rem;
+}
+
+.swiper-pagination-bullet {
+  background: $gray-dark;
+  width: 0.8rem;
+  height: 0.8rem;
+  transition: 0.5s all ease;
+
+  &-active {
+    width: 2.4rem;
+    transition: 0.5s all ease;
+    background: $main;
+    border-radius: 5.3rem;
+  }
+}
+
+// Media
+
+@media screen and (max-width: 1020px) {
+  .main-content-top {
+    grid-template-columns: 1fr;
+    gap: 0;
+    .main-content-item__small {
+      display: none;
+    }
+  }
+
+  .main-content-bottom {
+    height: 19rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-content-bottom {
+    display: none;
+  }
+  .main-content-top {
+    display: none;
+  }
+  .main-content-slider {
+    display: block;
+  }
+}

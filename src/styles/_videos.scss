@@ -1,7 +1,3 @@
-.videos {
-  // padding: 5.6rem 0;
-}
-
 .videos-inner {
   display: flex;
   flex-direction: column;
@@ -38,5 +34,25 @@
   p {
     font-size: 1.6rem;
     color: $black;
+  }
+}
+
+// Media
+
+@media screen and (max-width: 1150px) {
+  .videos-items {
+    grid-template-columns: 1fr 1fr;
+  }
+  .videos-item-video {
+    min-height: 30vw;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .videos-items {
+    grid-template-columns: 1fr;
+  }
+  .videos-item-video {
+    min-height: 40vw;
   }
 }

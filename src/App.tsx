@@ -1,19 +1,22 @@
 // Modules
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
 // Styles
-import "react-lazy-load-image-component/src/effects/blur.css";
-import "react-calendar/dist/Calendar.css";
-import "./styles/style.scss";
+import 'swiper/swiper.css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-calendar/dist/Calendar.css';
+import './styles/style.scss';
 
 // Pages
-import Main from "./pages/Main";
-import NewsArticle from "./pages/NewsArticle";
-import Category from "./pages/Category";
+import Main from './pages/Main';
+import NewsArticle from './pages/NewsArticle';
+import Category from './pages/Category';
 
 // Components
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   return (
