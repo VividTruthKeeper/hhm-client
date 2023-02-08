@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 // Types
-import { ActiveLinkType, RootState } from "../../types/store.types";
+import { RootState } from "../../types/store.types";
 
 // Actions
 import { setActiveLink } from "../../actions/setActiveLink.action";
 
 // Animations
 import { linkMotion } from "../../animations/subNav.animations";
+
+// Api
+import { Api } from "../../api/Api";
+import { url } from "../../url";
 
 interface subNavDataType {
   data: string;
@@ -64,11 +69,25 @@ const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
     (state) => state.activeLink.active
   );
+  const language = useSelector<RootState, RootState["language"]["title"]>(
+    (state) => state.language.title
+  );
+
   const dispatch = useDispatch();
 
   const onClickLink = (active: number) => {
     dispatch(setActiveLink(active));
   };
+
+  const [data, setData] = useState<any>();
+
+  // Api
+  const api = new Api(url + "/categories");
+
+  useEffect(() => {
+    api.get(data, setData);
+  }, [language]);
+  console.log(data);
 
   return (
     <nav className="subnav">

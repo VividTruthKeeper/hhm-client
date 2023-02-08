@@ -1,6 +1,3 @@
-// Store
-// import { functionalityStore } from "../store/functionality";
-
 // Reducers
 import { allReducers } from "../store/functionality";
 
@@ -20,5 +17,7 @@ export interface ILanguageAction {
   type: "SET_LANGUAGE";
   payload: "RU" | "EN" | "TM";
 }
+
+// ALL TYPES BEFORE THIS LINE ==================
 
 export type RootState = ReturnType<typeof allReducers>;
