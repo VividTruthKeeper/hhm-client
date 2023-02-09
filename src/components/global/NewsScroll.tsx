@@ -1,61 +1,75 @@
+// Modules
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useSelector, useDispatch } from "react-redux";
+
 // Components
 import News from "../news/News";
 import SectionTitle from "./SectionTitle";
-// Images
-import placeholder from "../../assets/images/placeholder.jpg";
+import Loader from "./Loader";
 
-// Interface
+// Api
+import { url } from "../../url";
+import { Api } from "../../api/Api";
+import { newsScrollParams } from "../../api/params";
+
+// Types
+import { IPostsData } from "../../types/data.types";
+import { ILanguage, RootState } from "../../types/store.types";
+
+// Actions
+import { setNewsScroll } from "../../actions/setData";
+
 interface Props {
-  state: boolean;
+  title: boolean;
 }
 
-const NewsScroll = ({ state }: Props) => {
+const NewsScroll = ({ title }: Props) => {
+  const api = new Api(url + "/posts", newsScrollParams);
+  const language = api.language;
+  const [lastLanguage, setLastLanguage] = useState<string>(language);
+
+  // redux
+  const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
+    (state) => state.dataReducer.data
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!(data[0].id > -1 && lastLanguage === language)) {
+      api.get(data, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
+      setLastLanguage(language);
+    }
+  }, [language, lastLanguage]);
+
   return (
     <div className="news-scroll">
       <SectionTitle title="Лента новостей" />
       <div className="news-scroll-wrapper">
-        {state === true ? (
+        {title === true ? (
           <SectionTitle
             title="Лента новостей"
             linkData={{ link: "/", title: "Посмотреть все" }}
           />
         ) : null}
         <div className="news-scroll-inner">
-          <News
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            text="Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen». Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen»"
-            date="12.01.2023"
-            category="Политика"
-            img={placeholder}
-          />
-          <News
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            text="Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen». Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen»"
-            date="12.01.2023"
-            category="Политика"
-            img={placeholder}
-          />
-          <News
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            text="Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen». Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen»"
-            date="12.01.2023"
-            category="Политика"
-            img={placeholder}
-          />
-          <News
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            text="Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen». Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen»"
-            date="12.01.2023"
-            category="Политика"
-            img={placeholder}
-          />
-          <News
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            text="Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen». Государственному объединению «Türkmen atlary» разрешено заключить дополнительное соглашение с ИП «Röwşen»"
-            date="12.01.2023"
-            category="Политика"
-            img={placeholder}
-          />
+          {data ? (
+            data.map((dataEl) => {
+              return (
+                <News
+                  key={uuidv4()}
+                  id={dataEl.id}
+                  title={dataEl.title}
+                  text={dataEl.content_html}
+                  date={dataEl.published_at}
+                  categories={dataEl.categories}
+                  img={dataEl.featured_images[0].path}
+                />
+              );
+            })
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     </div>
