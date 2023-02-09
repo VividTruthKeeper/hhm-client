@@ -3,7 +3,7 @@
 }
 .news-article-inner {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: calc(67% - 1.2rem) 1fr;
   gap: 2.4rem;
 }
 .news-article-info {

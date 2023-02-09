@@ -1,12 +1,15 @@
 // Modules
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // Components
-import Aside from '../components/aside/Aside';
+import Aside from "../components/aside/Aside";
+import NewsArticleSlider from "../components/news/NewsArticleSlider";
+
 // Images
-import placeholder from '../assets/images/placeholder3.png';
+import placeholder from "../assets/images/placeholder3.png";
+
 // Icons
-import share from '../assets/icons/share.svg';
-import { ReactComponent as Share } from '../assets/icons/share.svg';
+import { ReactComponent as Share } from "../assets/icons/share.svg";
 
 const NewsArticle = () => {
   return (
@@ -20,41 +23,47 @@ const NewsArticle = () => {
                 <h3 className="news-article-date">15:23, 21 января 2023</h3>
               </div>
               <h2 className="news-article-title">
-                В федерации футбола Туркменистана подвели итоги прошедшего года и наметили курс на
-                2023 год
+                В федерации футбола Туркменистана подвели итоги прошедшего года
+                и наметили курс на 2023 год
               </h2>
             </div>
-            <div className="news-article-image">
-              <LazyLoadImage src={placeholder} alt="image" useIntersectionObserver effect="blur" />
+            <div className="news-article-slider-wrapper">
+              <NewsArticleSlider />
             </div>
             <p className="news-article-text">
-              Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum urna tincidunt diam
-              commodo mauris ac sodales. Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor
-              sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Vestibulum eget
-              elementum urna tincidunt diam commodo mauris ac sodales. Lorem ipsum dolor sit amet
-              consectetur. <br />
-              <br /> Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.
-              Vestibulum eget elementum urna tincidunt diam commodo mauris ac sodales. Lorem ipsum
-              dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor
-              sit amet consectetur. Vestibulum eget elementum urna tincidunt diam commodo mauris ac
-              sodales.
+              Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum
+              urna tincidunt diam commodo mauris ac sodales. Lorem ipsum dolor
+              sit amet consectetur. Lorem ipsum dolor sit amet consectetur.
+              Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum
+              urna tincidunt diam commodo mauris ac sodales. Lorem ipsum dolor
+              sit amet consectetur. <br />
+              <br /> Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor
+              sit amet consectetur. Vestibulum eget elementum urna tincidunt
+              diam commodo mauris ac sodales. Lorem ipsum dolor sit amet
+              consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum
+              dolor sit amet consectetur. Vestibulum eget elementum urna
+              tincidunt diam commodo mauris ac sodales.
               <br />
-              <br /> Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum urna
-              tincidunt diam commodo mauris ac sodales. Lorem ipsum dolor sit amet consectetur.
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.
+              <br /> Lorem ipsum dolor sit amet consectetur. Vestibulum eget
+              elementum urna tincidunt diam commodo mauris ac sodales. Lorem
+              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+              consectetur. Lorem ipsum dolor sit amet consectetur.
               <br />
-              <br /> Vestibulum eget elementum urna tincidunt diam commodo mauris ac sodales. Lorem
-              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum
-              dolor sit amet consectetur. Vestibulum eget elementum urna tincidunt diam commodo
+              <br /> Vestibulum eget elementum urna tincidunt diam commodo
+              mauris ac sodales. Lorem ipsum dolor sit amet consectetur. Lorem
+              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+              consectetur. Vestibulum eget elementum urna tincidunt diam commodo
               mauris ac sodales.
               <br />
-              <br /> Lorem ipsum dolor sit amet consectetur. Vestibulum eget elementum urna
-              tincidunt diam commodo mauris ac sodales. Lorem ipsum dolor sit amet consectetur.
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.
+              <br /> Lorem ipsum dolor sit amet consectetur. Vestibulum eget
+              elementum urna tincidunt diam commodo mauris ac sodales. Lorem
+              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+              consectetur. Lorem ipsum dolor sit amet consectetur.
               <br />
-              <br /> Vestibulum eget elementum urna tincidunt diam commodo mauris ac sodales. Lorem
-              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum
-              dolor sit amet consectetur. Vestibulum eget elementum urna tincidunt diam commodo
+              <br /> Vestibulum eget elementum urna tincidunt diam commodo
+              mauris ac sodales. Lorem ipsum dolor sit amet consectetur. Lorem
+              ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+              consectetur. Vestibulum eget elementum urna tincidunt diam commodo
               mauris ac sodales.
             </p>
             <button className="share-btn">
