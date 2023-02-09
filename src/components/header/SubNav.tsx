@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 // Types
 import { RootState } from "../../types/store.types";
+import { ICategoriesData } from "../../types/data.types";
 
 // Actions
 import { setActiveLink } from "../../actions/setActiveLink.action";
@@ -18,52 +19,8 @@ import { linkMotion } from "../../animations/subNav.animations";
 import { Api } from "../../api/Api";
 import { url } from "../../url";
 
-interface subNavDataType {
-  data: string;
-  link: string;
-}
-const subNavData: subNavDataType[] = [
-  {
-    data: "Главная",
-    link: "/",
-  },
-  {
-    data: "В Туркменистане",
-    link: "/1",
-  },
-  {
-    data: "Новости",
-    link: "/2",
-  },
-  {
-    data: "В мире",
-    link: "/3",
-  },
-  {
-    data: "Политика",
-    link: "/4",
-  },
-  {
-    data: "Экономика",
-    link: "/5",
-  },
-  {
-    data: "Спорт",
-    link: "/6",
-  },
-  {
-    data: "Культура",
-    link: "/7",
-  },
-  {
-    data: "Общество",
-    link: "/8",
-  },
-  {
-    data: "Наука и Технологии",
-    link: "/9",
-  },
-];
+// Components
+import Loader from "../global/Loader";
 
 const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
@@ -79,7 +36,7 @@ const SubNav = () => {
     dispatch(setActiveLink(active));
   };
 
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<ICategoriesData>();
 
   // Api
   const api = new Api(url + "/categories");
@@ -87,33 +44,38 @@ const SubNav = () => {
   useEffect(() => {
     api.get(data, setData);
   }, [language]);
-  console.log(data);
 
   return (
     <nav className="subnav">
       <div className="container">
         <ul className="subnav-inner">
-          {subNavData.map((subNavEl: subNavDataType, index: number) => {
-            return (
-              <motion.li
-                key={uuidv4()}
-                initial={linkMotion.rest}
-                animate={
-                  activeLink === index + 1 ? linkMotion.active : linkMotion.rest
-                }
-              >
-                <motion.div>
-                  <Link
-                    to="/"
-                    onClick={() => onClickLink(index + 1)}
-                    className={activeLink === index + 1 ? "active" : ""}
-                  >
-                    {subNavEl.data}
-                  </Link>
-                </motion.div>
-              </motion.li>
-            );
-          })}
+          {data ? (
+            data.data.map((dataEl, index) => {
+              return (
+                <motion.li
+                  key={uuidv4()}
+                  initial={linkMotion.rest}
+                  animate={
+                    activeLink === index + 1
+                      ? linkMotion.active
+                      : linkMotion.rest
+                  }
+                >
+                  <motion.div>
+                    <Link
+                      to="/"
+                      onClick={() => onClickLink(index + 1)}
+                      className={activeLink === index + 1 ? "active" : ""}
+                    >
+                      {dataEl.name}
+                    </Link>
+                  </motion.div>
+                </motion.li>
+              );
+            })
+          ) : (
+            <Loader />
+          )}
         </ul>
       </div>
     </nav>
