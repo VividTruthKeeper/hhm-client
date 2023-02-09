@@ -46,6 +46,11 @@ const Nav = () => {
               </li>
             </ul>
           </div>
+          <div className="nav-burger">
+            <span className="line line-1"></span>
+            <span className="line line-2"></span>
+            <span className="line line-3"></span>
+          </div>
         </div>
       </div>
     </nav>
