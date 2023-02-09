@@ -16,3 +16,9 @@
     gap: 5.6rem;
   }
 }
+
+@media (max-width: 850px) {
+  .news-inner {
+    gap: 4rem;
+  }
+}

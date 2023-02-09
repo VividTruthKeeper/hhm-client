@@ -1,8 +1,8 @@
 // Components
-import News from '../news/News';
-import SectionTitle from './SectionTitle';
+import News from "../news/News";
+import SectionTitle from "./SectionTitle";
 // Images
-import placeholder from '../../assets/images/placeholder.jpg';
+import placeholder from "../../assets/images/placeholder.jpg";
 
 // Interface
 interface Props {
@@ -12,9 +12,13 @@ interface Props {
 const NewsScroll = ({ state }: Props) => {
   return (
     <div className="news-scroll">
+      <SectionTitle title="Лента новостей" />
       <div className="news-scroll-wrapper">
         {state === true ? (
-          <SectionTitle title="Лента новостей" linkData={{ link: '/', title: 'Посмотреть все' }} />
+          <SectionTitle
+            title="Лента новостей"
+            linkData={{ link: "/", title: "Посмотреть все" }}
+          />
         ) : null}
         <div className="news-scroll-inner">
           <News

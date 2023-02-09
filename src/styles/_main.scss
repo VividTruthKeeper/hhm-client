@@ -42,7 +42,11 @@
     top: 0;
     left: 0;
     @include wh100;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
     display: flex;
     padding: 1.6rem;
     align-items: flex-end;
@@ -115,5 +119,23 @@
   }
   .main-content-slider {
     display: block;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .main {
+    padding: 4rem 0;
+  }
+  .main-content {
+    .section-title {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+  .main-content-item__big {
+    h2 {
+      font-size: 1.6rem;
+    }
   }
 }
