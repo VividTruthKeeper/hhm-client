@@ -1,7 +1,6 @@
 // Modules
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -12,15 +11,13 @@ import { ICategoriesData } from "../../types/data.types";
 // Actions
 import { setActiveLink } from "../../actions/setActiveLink.action";
 
-// Animations
-import { linkMotion } from "../../animations/subNav.animations";
-
 // Api
 import { Api } from "../../api/Api";
 import { url } from "../../url";
 
 // Components
 import Loader from "../global/Loader";
+import SubNavLi from "./SubNavLi";
 
 const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
@@ -56,44 +53,25 @@ const SubNav = () => {
     <nav className="subnav">
       <div className="container">
         <ul className="subnav-inner">
-          <motion.li
-            initial={linkMotion.rest}
-            animate={activeLink === 0 ? linkMotion.active : linkMotion.rest}
-          >
-            <motion.div>
-              <Link
-                to={"/"}
-                onClick={() => onClickLink(0)}
-                className={activeLink === 0 ? "active" : ""}
-              >
-                Главная
-              </Link>
-            </motion.div>
-          </motion.li>
           {data ? (
-            data.data.map((dataEl) => {
-              return (
-                <motion.li
-                  key={uuidv4()}
-                  initial={linkMotion.rest}
-                  animate={
-                    activeLink === dataEl.id
-                      ? linkMotion.active
-                      : linkMotion.rest
-                  }
-                >
-                  <motion.div>
-                    <Link
-                      to={`/category/${dataEl.id}`}
-                      onClick={() => onClickLink(dataEl.id)}
-                      className={activeLink === dataEl.id ? "active" : ""}
-                    >
-                      {dataEl.name}
-                    </Link>
-                  </motion.div>
-                </motion.li>
-              );
-            })
+            <>
+              <SubNavLi
+                isNotCategory
+                dataEl={{ id: 0, name: "Главная" }}
+                activeLink={activeLink}
+                onClickLink={onClickLink}
+              />
+              {data.data.map((dataEl) => {
+                return (
+                  <SubNavLi
+                    key={uuidv4()}
+                    dataEl={dataEl}
+                    activeLink={activeLink}
+                    onClickLink={onClickLink}
+                  />
+                );
+              })}
+            </>
           ) : (
             <Loader />
           )}

@@ -71,6 +71,7 @@
 }
 
 .language-dropdown {
+  z-index: 2;
   position: absolute;
   top: calc(100% + 1rem);
   left: 0;
@@ -107,17 +108,52 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  // justify-content: space-between;
+  justify-content: space-between;
 
   li {
     color: $black;
+    width: 100%;
   }
   a {
+    text-align: center;
+    text-transform: capitalize;
     display: block;
     white-space: nowrap;
     padding: 1rem;
     font-size: 1.6rem;
     color: inherit;
     @include raleway;
+
+    -webkit-user-drag: none;
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $gray;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $gray-dark;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $body;
+  }
+}
+
+.subnav-slider {
+  .swiper-wrapper {
+    padding: 0;
+    gap: 2.4rem;
+  }
+  .swiper-slide {
+    max-width: fit-content !important;
   }
 }
