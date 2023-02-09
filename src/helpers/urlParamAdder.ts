@@ -1,15 +1,15 @@
-import { IurlParamAdder } from "../types/api.types";
+import { IurlParamAdder } from '../types/api.types';
 
 export const urlParamAdder = (
   locale: IurlParamAdder,
   url: string,
-  params?: IurlParamAdder[]
+  params?: IurlParamAdder[],
 ): string => {
   url = url + `?${locale.name}=${(locale.value as string).toLowerCase()}`;
   if (!params) return url;
-  let concatendated: string = "";
+  let concatenated: string = '';
   params.forEach((param: IurlParamAdder) => {
-    concatendated = concatendated + `&${param.name}=${param.value}`;
+    concatenated = concatenated + `&${param.name}=${param.value}`;
   });
-  return url + concatendated;
+  return url + concatenated;
 };
