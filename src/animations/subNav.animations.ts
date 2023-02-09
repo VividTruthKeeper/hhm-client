@@ -1,7 +1,7 @@
 export const linkMotion = {
   rest: {
     fontWeight: "normal",
-    background: "rgba(56,163,157, 0)",
+    background: "rgba(241,241, 241, 1)",
     type: "tween",
   },
   active: {

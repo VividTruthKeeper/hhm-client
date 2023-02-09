@@ -113,8 +113,10 @@
   li {
     color: $black;
     width: 100%;
+    border-radius: 0.4rem;
   }
   a {
+    border-radius: 0.4rem;
     text-align: center;
     text-transform: capitalize;
     display: block;
@@ -148,12 +150,16 @@
   }
 }
 
-.subnav-slider {
-  .swiper-wrapper {
-    padding: 0;
-    gap: 2.4rem;
-  }
-  .swiper-slide {
-    max-width: fit-content !important;
+// Media
+
+@media screen and (max-width: 800px) {
+  .subnav-inner {
+    gap: 0.8rem;
+    padding: 2.4rem 0 0.8rem 0;
+
+    a {
+      padding: 0.8rem;
+      font-size: 1.4rem;
+    }
   }
 }
