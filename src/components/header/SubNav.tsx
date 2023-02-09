@@ -1,5 +1,5 @@
 // Modules
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,6 +44,13 @@ const SubNav = () => {
   useEffect(() => {
     api.get(data, setData);
   }, [language]);
+
+  const location = useLocation();
+  useEffect(() => {
+    if (!location.pathname.includes("category")) return;
+    const category = location.pathname[location.pathname.length - 1];
+    onClickLink(parseInt(category));
+  }, [location]);
 
   return (
     <nav className="subnav">
