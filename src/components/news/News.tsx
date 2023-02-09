@@ -36,16 +36,20 @@ const News = ({ id, title, text, categories, date, img }: Props) => {
               <h2 className="news-title">{title}</h2>
             </Link>
             <div className="news-status">
-              {categories.map((category) => {
-                return (
-                  <NewsCategory
-                    key={uuidv4()}
-                    title={category.name}
-                    id={category.id}
-                  />
-                );
-              })}
-              <NewsDate date={date} />
+              <div className="news-status-left">
+                {categories.map((category) => {
+                  return (
+                    <NewsCategory
+                      key={uuidv4()}
+                      title={category.name}
+                      id={category.id}
+                    />
+                  );
+                })}
+              </div>
+              <div className="news-status-right">
+                <NewsDate date={date} />
+              </div>
             </div>
             <div
               className="news-text"
