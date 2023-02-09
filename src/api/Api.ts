@@ -1,7 +1,7 @@
 // Modules
 import axios from "axios";
 import { Dispatch, SetStateAction } from "react";
-import { useSelector } from "react-redux";
+import { DispatchProp, useSelector } from "react-redux";
 
 // Types
 import { IurlParamAdder } from "../types/api.types";
@@ -11,9 +11,9 @@ import { RootState } from "../types/store.types";
 import { urlParamAdder } from "../helpers/urlParamAdder";
 
 export class Api {
-  url: string = "";
-  params?: IurlParamAdder[];
-  language = useSelector<RootState, RootState["language"]["title"]>(
+  private url: string = "";
+  private params?: IurlParamAdder[];
+  public language = useSelector<RootState, RootState["language"]["title"]>(
     (state) => state.language.title
   );
 
