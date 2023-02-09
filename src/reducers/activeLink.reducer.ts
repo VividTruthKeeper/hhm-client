@@ -2,7 +2,7 @@
 import { ActiveLinkActionType, ActiveLinkType } from "../types/store.types";
 
 const initialState = {
-  active: 1,
+  active: 0,
 };
 
 export const activeLinkReducer = (

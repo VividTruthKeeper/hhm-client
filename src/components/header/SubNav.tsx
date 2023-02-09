@@ -49,23 +49,37 @@ const SubNav = () => {
     <nav className="subnav">
       <div className="container">
         <ul className="subnav-inner">
+          <motion.li
+            initial={linkMotion.rest}
+            animate={activeLink === 0 ? linkMotion.active : linkMotion.rest}
+          >
+            <motion.div>
+              <Link
+                to={"/"}
+                onClick={() => onClickLink(0)}
+                className={activeLink === 0 ? "active" : ""}
+              >
+                Главная
+              </Link>
+            </motion.div>
+          </motion.li>
           {data ? (
-            data.data.map((dataEl, index) => {
+            data.data.map((dataEl) => {
               return (
                 <motion.li
                   key={uuidv4()}
                   initial={linkMotion.rest}
                   animate={
-                    activeLink === index + 1
+                    activeLink === dataEl.id
                       ? linkMotion.active
                       : linkMotion.rest
                   }
                 >
                   <motion.div>
                     <Link
-                      to="/"
-                      onClick={() => onClickLink(index + 1)}
-                      className={activeLink === index + 1 ? "active" : ""}
+                      to={`/category/${dataEl.id}`}
+                      onClick={() => onClickLink(dataEl.id)}
+                      className={activeLink === dataEl.id ? "active" : ""}
                     >
                       {dataEl.name}
                     </Link>
