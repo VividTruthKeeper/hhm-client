@@ -1,10 +1,10 @@
 // Components
-import Aside from '../components/aside/Aside';
-import NewsScroll from '../components/global/NewsScroll';
-import MainImg from '../components/category/MainImg';
+import Aside from "../components/aside/Aside";
+import NewsScroll from "../components/global/NewsScroll";
+import MainImg from "../components/category/MainImg";
 
 // Images
-import Placeholder from '../assets/images/placeholder3.png';
+import Placeholder from "../assets/images/placeholder3.png";
 
 const Category = () => {
   return (
@@ -13,7 +13,7 @@ const Category = () => {
         <div className="category-inner">
           <div className="category-left">
             <MainImg img={Placeholder} />
-            <NewsScroll state={false} />
+            <NewsScroll title={false} />
           </div>
           <div className="category-right">
             <Aside />
