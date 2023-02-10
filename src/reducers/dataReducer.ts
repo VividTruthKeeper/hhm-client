@@ -6,6 +6,8 @@ import {
   IPostDataAction,
 } from "../types/store.types";
 
+// NewsScroll
+
 export const newsScrollInitialState = {
   data: [
     {
@@ -64,6 +66,8 @@ export const newsScrollReducer = (
     }
   }
 };
+
+// Post
 
 export const postInitialState = {
   data: {
