@@ -15,7 +15,7 @@ import { newsScrollParams } from "../../api/params";
 
 // Types
 import { IPostsData } from "../../types/data.types";
-import { ILanguage, RootState } from "../../types/store.types";
+import { RootState } from "../../types/store.types";
 
 // Actions
 import { setNewsScroll } from "../../actions/setData";
@@ -30,13 +30,13 @@ const NewsScroll = ({ title }: Props) => {
   const [lastLanguage, setLastLanguage] = useState<string>(language);
 
   // redux
-  const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
-    (state) => state.dataReducer.data
+  const data = useSelector<RootState, RootState["newsScroll"]["data"]>(
+    (state) => state.newsScroll.data
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!(data[0].id > -1 && lastLanguage === language)) {
+    if (!((data as IPostsData[])[0].id > -1 && lastLanguage === language)) {
       api.get(data, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
       setLastLanguage(language);
     }
@@ -54,7 +54,7 @@ const NewsScroll = ({ title }: Props) => {
         ) : null}
         <div className="news-scroll-inner">
           {data ? (
-            data.map((dataEl) => {
+            (data as IPostsData[]).map((dataEl) => {
               return (
                 <News
                   key={uuidv4()}

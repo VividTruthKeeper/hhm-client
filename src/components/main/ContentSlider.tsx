@@ -1,15 +1,15 @@
 // Modules
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper";
 
 // Images
-import Placeholder from '../../assets/images/placeholder3.png';
+import Placeholder from "../../assets/images/placeholder3.png";
 
 // Components
-import ContentItem from './ContentItem';
+import ContentItem from "./ContentItem";
 
 // Static
-import { titlePlaceholder } from './MainContent';
+import { titlePlaceholder } from "./MainContent";
 
 const ContentSlider = () => {
   return (
@@ -24,8 +24,10 @@ const ContentSlider = () => {
         }}
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{
-          type: 'bullets',
-        }}>
+          type: "bullets",
+          clickable: true,
+        }}
+      >
         <SwiperSlide>
           <ContentItem type="big" img={Placeholder} title={titlePlaceholder} />
         </SwiperSlide>

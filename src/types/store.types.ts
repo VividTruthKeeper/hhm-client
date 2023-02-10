@@ -4,6 +4,7 @@ import { allReducers } from "../store/functionality";
 // Types
 import { IPostsData } from "./data.types";
 
+// NavLink
 export interface ActiveLinkType {
   active: number;
 }
@@ -12,6 +13,7 @@ export interface ActiveLinkActionType {
   payload: number;
 }
 
+// Language
 export interface ILanguage {
   title: "RU" | "EN" | "TM";
 }
@@ -21,12 +23,27 @@ export interface ILanguageAction {
   payload: "RU" | "EN" | "TM";
 }
 
+// NewsScroll
+
 export interface INewsScroll {
   data: IPostsData[];
 }
 export interface INewsScrollAction {
   type: "SET_NEWS_SCROLL";
   payload: INewsScroll["data"];
+}
+
+// Post
+
+export interface IPostData {
+  data: {
+    data: IPostsData;
+  };
+}
+
+export interface IPostDataAction {
+  type: "SET_POST";
+  payload: IPostData["data"];
 }
 
 // ALL TYPES BEFORE THIS LINE ==================
