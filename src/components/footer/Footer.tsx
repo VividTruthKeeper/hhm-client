@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import phone from '../../assets/icons/phone.svg';
 import mail from '../../assets/icons/mail.svg';
 import location from '../../assets/icons/location.svg';
+import { ReactComponent as Instagram } from '../../assets/icons/insta-black.svg';
+import { ReactComponent as Facebook } from '../../assets/icons/fb-black.svg';
+import { ReactComponent as TikTok } from '../../assets/icons/tiktok-black.svg';
 
 const Footer = () => {
   return (
@@ -74,6 +77,28 @@ const Footer = () => {
                 115184, Ашхабад, Битарап шаелы, 25 (Центр телерадиовещания Туркменистана)
               </h3>
             </div>
+
+            <div className="footer-info-item">
+              <div className="footer-info-item-icon">
+                <Instagram />
+              </div>
+              <h3 className="footer-info-item-title">hhm@inst.com</h3>
+            </div>
+
+            <div className="footer-info-item">
+              <div className="footer-info-item-icon">
+                <Facebook />
+              </div>
+              <h3 className="footer-info-item-title">hhm@face.com</h3>
+            </div>
+
+            <div className="footer-info-item">
+              <div className="footer-info-item-icon">
+                <TikTok />
+              </div>
+              <h3 className="footer-info-item-title">@hhm</h3>
+            </div>
+
             <div className="footer-info-item">
               <h3 className="footer-info-item-title">Реклама на ТВ и радио: (993) 12 78-13-99</h3>
             </div>
