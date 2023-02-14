@@ -1,27 +1,27 @@
 // Modules
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 // Components
-import Aside from "../components/aside/Aside";
-import NewsArticleSlider from "../components/news/NewsArticleSlider";
-import Loader from "../components/global/Loader";
+import Aside from '../components/aside/Aside';
+import NewsArticleSlider from '../components/news/NewsArticleSlider';
+import Loader from '../components/global/Loader';
 
 // Icons
-import { ReactComponent as Share } from "../assets/icons/share.svg";
+import { ReactComponent as Share } from '../assets/icons/share.svg';
 
 // Types
-import { RootState } from "../types/store.types";
-import { IPostData } from "../types/store.types";
+import { RootState } from '../types/store.types';
+import { IPostData } from '../types/store.types';
 
 // Actions
-import { setPost } from "../actions/setData";
+import { setPost } from '../actions/setData';
 
 // Api
-import { Api } from "../api/Api";
-import { url } from "../url";
+import { Api } from '../api/Api';
+import { url } from '../url';
 
 const NewsArticle = () => {
   const { id } = useParams();
@@ -33,16 +33,12 @@ const NewsArticle = () => {
   const [lastLanguage, setLastLanguage] = useState<string>(language);
 
   // redux
-  const data = useSelector<RootState, RootState["post"]["data"]>(
-    (state) => state.post.data
-  );
+  const data = useSelector<RootState, RootState['post']['data']>((state) => state.post.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      !(data.data.id === parseInt(id as string) && lastLanguage === language)
-    ) {
-      api.get(data, (data: IPostData["data"]) => dispatch(setPost(data)));
+    if (!(data.data.id === parseInt(id as string) && lastLanguage === language)) {
+      api.get(data, (data: IPostData['data']) => dispatch(setPost(data)));
       setLastLanguage(language);
     }
   }, [language, lastLanguage]);
@@ -60,16 +56,13 @@ const NewsArticle = () => {
                       <Link
                         key={uuidv4()}
                         to={`/category/${category.id}`}
-                        className="news-article-category"
-                      >
+                        className="news-article-category">
                         {category.name}
                       </Link>
                     ))}
                   </div>
                   <div className="news-article-right">
-                    <h3 className="news-article-date">
-                      {data.data.published_at}
-                    </h3>
+                    <h3 className="news-article-date">{data.data.published_at}</h3>
                   </div>
                 </div>
                 <h2 className="news-article-title">{data.data.title}</h2>
@@ -79,8 +72,7 @@ const NewsArticle = () => {
               </div>
               <p
                 className="news-article-text"
-                dangerouslySetInnerHTML={{ __html: data.data.content_html }}
-              ></p>
+                dangerouslySetInnerHTML={{ __html: data.data.content_html }}></p>
               <button className="share-btn">
                 <Share /> <span>Поделиться</span>
               </button>

@@ -81,3 +81,41 @@
   gap: 1rem;
   cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+  .news-article-inner {
+    display: block;
+  }
+
+  .news-article-content {
+    margin-bottom: 5.6rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .news-article-inner {
+    display: block;
+  }
+
+  .news-article-content {
+    margin-bottom: 5.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .news-article-category {
+    font-size: 1.6rem;
+  }
+
+  .news-article-title {
+    font-size: 1.8rem;
+  }
+
+  .news-article-text {
+    font-size: 1.6rem;
+  }
+
+  .news-article-content {
+    gap: 1.6rem;
+  }
+}
