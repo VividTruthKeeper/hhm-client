@@ -95,6 +95,11 @@
   gap: 2.4rem;
 }
 
+.scroll-empty {
+  font-size: 1.4rem;
+  color: $black;
+}
+
 @media (max-width: 1024px) {
   .news-title {
     font-size: 2rem;
