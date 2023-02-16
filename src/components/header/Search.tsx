@@ -1,6 +1,6 @@
 // Modules
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
 
 // Animations
 import { searchMotion } from "../../animations/search.animation";
@@ -8,8 +8,22 @@ import { searchMotion } from "../../animations/search.animation";
 // Icons
 import { ReactComponent as Loop } from "../../assets/icons/loop.svg";
 
+// Types
+import { RootState } from "../../types/store.types";
+
+// Actions
+import { setSearch } from "../../actions/setSearch";
+
 const Search = () => {
-  const [input, setInput] = useState<string>("");
+  const onInputChange = (value: string) => {
+    dispatch(setSearch(value));
+  };
+  // redux
+  const dispatch = useDispatch();
+  const inputValue = useSelector<RootState, RootState["search"]["value"]>(
+    (state) => state.search.value
+  );
+
   return (
     <form
       className="search"
@@ -19,13 +33,14 @@ const Search = () => {
     >
       <input
         type="text"
+        value={inputValue}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-          setInput(event.target.value)
+          onInputChange(event.target.value)
         }
       />
       <motion.div
         initial={"rest"}
-        animate={input.length > 0 ? "active" : "rest"}
+        animate={inputValue.length > 0 ? "active" : "rest"}
         variants={searchMotion}
       >
         <Loop />
