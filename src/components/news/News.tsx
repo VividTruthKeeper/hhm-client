@@ -31,9 +31,7 @@ const News = ({ id, title, text, categories, date, img }: Props) => {
         </div>
         <div className="news-info">
           <div className="news-info-inner">
-            <Link to={`/news/${id}`}>
-              <h2 className="news-title">{title}</h2>
-            </Link>
+            <h2 className="news-title">{title}</h2>
             <div className="news-status">
               <div className="news-status-left">
                 {categories.map((category) => {

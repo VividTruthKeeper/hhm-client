@@ -33,9 +33,7 @@ const AsideNews = ({ title, date, img, category, link }: Props) => {
               <NewsCategory title={category} />
               <NewsDate date={date} />
             </div>
-            <Link to={link}>
-              <h2 className="aside-news-title">{title}</h2>
-            </Link>
+            <h2 className="aside-news-title">{title}</h2>
           </div>
         </div>
       </div>
