@@ -27,7 +27,6 @@
 
 @media (max-width: 450px) {
   .aside-wrapper {
-    gap: 3.2rem;
     padding: 2.4rem 0.8rem;
   }
 }
@@ -37,11 +36,3 @@
     gap: 0rem;
   }
 }
-
-// @media (max-width: 1024px) {
-//   .aside {
-//     flex-direction: row;
-//     align-items: flex-start;
-//     gap: 2.4rem;
-//   }
-// }

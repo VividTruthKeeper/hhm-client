@@ -96,8 +96,19 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .footer-nav-list {
-//     grid-template-columns: auto;
-//   }
-// }
+@media (max-width: 400px) {
+  .footer-wrapper {
+    gap: 2.4rem;
+  }
+  .footer-nav-list {
+    gap: 1.6rem;
+  }
+  .footer-nav-list-item {
+    a {
+      font-size: 1.6rem;
+    }
+  }
+  .footer-info-item-title {
+    font-size: 1.6rem;
+  }
+}

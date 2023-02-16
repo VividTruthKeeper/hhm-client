@@ -1,6 +1,6 @@
 .news-wrapper {
-  display: flex;
-  // align-items: center;
+  display: grid;
+  grid-template-columns: 32rem 1fr;
   gap: 1.6rem;
 }
 
@@ -104,4 +104,25 @@
   .news-title {
     font-size: 2rem;
   }
+}
+
+@media (max-width: 900px) {
+  .news-wrapper {
+    grid-template-columns: 25rem 1fr;
+  }
+}
+@media (max-width: 750px) {
+  .news-title {
+    font-size: 1.8rem;
+  }
+  .news-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .news-image {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 400px) {
 }

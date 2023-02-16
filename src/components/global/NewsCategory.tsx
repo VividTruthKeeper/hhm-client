@@ -3,15 +3,10 @@ import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
-  id: number;
 }
 
-const NewsCategory = ({ title, id }: Props) => {
-  return (
-    <Link to={`/category/${id}`} className="news-category">
-      {title}
-    </Link>
-  );
+const NewsCategory = ({ title }: Props) => {
+  return <p className="news-category">{title}</p>;
 };
 
 export default NewsCategory;

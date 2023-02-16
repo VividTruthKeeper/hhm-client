@@ -17,20 +17,20 @@ interface Props {
 
 const AsideNews = ({ title, date, img, category, link }: Props) => {
   return (
-    <div className="aside-news">
+    <Link to={link} className="aside-news">
       <div className="aside-news-wrapper">
-        <Link to={link} className="aside-news-image">
+        <div className="aside-news-image">
           <LazyLoadImage
             src={img}
             alt="image"
             useIntersectionObserver
             effect="blur"
           />
-        </Link>
+        </div>
         <div className="aside-news-info">
           <div className="aside-news-info-inner">
             <div className="aside-news-status">
-              <NewsCategory title={category} id={1} />
+              <NewsCategory title={category} />
               <NewsDate date={date} />
             </div>
             <Link to={link}>
@@ -39,7 +39,7 @@ const AsideNews = ({ title, date, img, category, link }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
