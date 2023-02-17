@@ -34,24 +34,39 @@ const NewsScroll = ({ title, category }: Props) => {
   const [lastLanguage, setLastLanguage] = useState<string>(language);
 
   // redux
-  const data = useSelector<RootState, RootState["newsScroll"]["data"]>(
+  const rawData = useSelector<RootState, RootState["newsScroll"]["data"]>(
     (state) => state.newsScroll.data
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    api.get(data, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
+    api.get(rawData, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
     setLastLanguage(language);
   }, [category]);
 
   useEffect(() => {
-    if (data.length > 0) {
-      if (!((data as IPostsData[])[0].id > -1 && lastLanguage === language)) {
-        api.get(data, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
+    if (rawData.length > 0) {
+      if (
+        !((rawData as IPostsData[])[0].id > -1 && lastLanguage === language)
+      ) {
+        api.get(rawData, (rawData: IPostsData[]) =>
+          dispatch(setNewsScroll(rawData))
+        );
         setLastLanguage(language);
       }
     }
   }, [language, lastLanguage]);
+
+  const [filteredData, setFilteredData] = useState<IPostsData[]>(rawData);
+
+  useEffect(() => {
+    const filtered = rawData.filter((el, index) => {
+      if (index > 0) {
+        return el;
+      }
+    });
+    setFilteredData(filtered);
+  }, [rawData]);
 
   return (
     <div className="news-scroll">
@@ -64,9 +79,9 @@ const NewsScroll = ({ title, category }: Props) => {
           />
         ) : null}
         <div className="news-scroll-inner">
-          {data.length > 0 ? (
-            (data as IPostsData[])[0].id > -1 ? (
-              (data as IPostsData[]).map((dataEl) => {
+          {filteredData.length > 0 ? (
+            (filteredData as IPostsData[])[0].id > -1 ? (
+              (filteredData as IPostsData[]).map((dataEl, index) => {
                 return (
                   <News
                     key={uuidv4()}

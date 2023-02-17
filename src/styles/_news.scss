@@ -41,7 +41,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.6rem;
+  column-gap: 1.6rem;
+  row-gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .news-link {
