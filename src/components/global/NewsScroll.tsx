@@ -22,7 +22,7 @@ import { setNewsScroll } from "../../actions/setData";
 
 interface Props {
   title: boolean;
-  category: number;
+  category?: number;
 }
 
 const NewsScroll = ({ title, category }: Props) => {
