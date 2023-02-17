@@ -11,7 +11,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 2;
   pointer-events: none;
   display: flex;
@@ -23,6 +27,10 @@
 
   h2 {
     font-size: 2.4rem;
+  }
+
+  .date {
+    text-align: right;
   }
 
   p {
@@ -40,6 +48,23 @@
       }
     }
   }
+
+  .cats {
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    justify-content: flex-start !important;
+
+    span {
+      width: fit-content;
+    }
+  }
+}
+
+.main-img-overlay-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
 }
 
 .category-inner {

@@ -1,32 +1,56 @@
 // Modules
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
-interface IProps {
-  img: string;
-}
+// Types
+import { RootState } from "../../types/store.types";
 
-const MainImg = ({ img }: IProps) => {
+const MainImg = () => {
+  // redux
+  const data = useSelector<RootState, RootState["newsScroll"]["data"]>(
+    (state) => state.newsScroll.data
+  );
   return (
-    <Link to={"/news/123"} className="main-img">
-      <LazyLoadImage
-        src={img}
-        alt={img}
-        useIntersectionObserver
-        effect="blur"
-      />
+    <>
+      {data.length > 0 ? (
+        data[0].id > -1 ? (
+          <Link to={`/news/${data[0].id}`} className="main-img">
+            <LazyLoadImage
+              src={
+                (data[0].featured_images.length > 0
+                  ? data[0].featured_images[0]
+                  : "") as string
+              }
+              alt={
+                (data[0].featured_images.length > 0
+                  ? data[0].featured_images[0]
+                  : "") as string
+              }
+              useIntersectionObserver
+              effect="blur"
+            />
 
-      <div className="main-img-overlay">
-        <h2>
-          Полезная информация для поступающих на программы подготовки научных
-          кадров в Туркменистане
-        </h2>
-        <p>
-          <span>Политика</span>
-          <span>12.01.2023</span>
-        </p>
-      </div>
-    </Link>
+            <div className="main-img-overlay">
+              <h2>{data[0].title}</h2>
+              <div className="main-img-overlay-wrapper">
+                <p className="cats">
+                  {data[0].categories.map((category) => {
+                    return <span key={uuidv4()}>{category.name}</span>;
+                  })}
+                </p>
+                <span className="date">{data[0].published_at}</span>
+              </div>
+            </div>
+          </Link>
+        ) : (
+          ""
+        )
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

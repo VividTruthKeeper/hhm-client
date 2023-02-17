@@ -14,7 +14,7 @@ const Category = () => {
       <div className="container">
         <div className="category-inner">
           <div className="category-left">
-            <MainImg img={Placeholder} />
+            <MainImg />
             <NewsScroll title={false} category={parseInt(category as string)} />
           </div>
           <div className="category-right">
