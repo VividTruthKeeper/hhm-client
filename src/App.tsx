@@ -1,5 +1,7 @@
 // Modules
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 // Styles
 import "swiper/swiper.css";
@@ -19,17 +21,21 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
+  const location = useLocation();
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/category/:category" element={<Category />} />
-        <Route path="/news/:id" element={<NewsArticle />} />
-      </Routes>
-
-      <Footer />
-    </div>
+    <ScrollToTop>
+      <div className="App">
+        <Header />
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Main />} />
+            <Route path="/category/:category" element={<Category />} />
+            <Route path="/news/:id" element={<NewsArticle />} />
+          </Routes>
+        </AnimatePresence>
+        <Footer />
+      </div>
+    </ScrollToTop>
   );
 };
 
