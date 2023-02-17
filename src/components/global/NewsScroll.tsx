@@ -75,7 +75,11 @@ const NewsScroll = ({ title, category }: Props) => {
                     text={dataEl.content_html}
                     date={dataEl.published_at}
                     categories={dataEl.categories}
-                    img={dataEl.featured_images[0].path}
+                    img={
+                      dataEl.featured_images[0]
+                        ? dataEl.featured_images[0].path
+                        : ""
+                    }
                   />
                 );
               })
