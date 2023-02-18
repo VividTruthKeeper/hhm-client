@@ -70,7 +70,6 @@ const NewsScroll = ({ title, category }: Props) => {
 
   return (
     <div className="news-scroll">
-      <SectionTitle title="Лента новостей" />
       <div className="news-scroll-wrapper">
         {title === true ? (
           <SectionTitle

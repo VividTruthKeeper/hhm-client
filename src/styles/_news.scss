@@ -102,6 +102,12 @@
   color: $black;
 }
 
+.news-image {
+  img {
+    @include wh100;
+  }
+}
+
 @media (max-width: 1024px) {
   .news-title {
     font-size: 2rem;

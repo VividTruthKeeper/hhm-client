@@ -21,7 +21,7 @@ const Main = () => {
           <div className="news-inner">
             <MainContent />
             <div className="news-outer-wrapper">
-              <NewsScroll title={false} />
+              <NewsScroll title={true} />
               <Aside />
             </div>
             <Videos />

@@ -20,12 +20,12 @@ const MainImg = () => {
             <LazyLoadImage
               src={
                 (data[0].featured_images.length > 0
-                  ? data[0].featured_images[0]
+                  ? data[0].featured_images[0].path
                   : "") as string
               }
               alt={
                 (data[0].featured_images.length > 0
-                  ? data[0].featured_images[0]
+                  ? data[0].featured_images[0].file_name
                   : "") as string
               }
               useIntersectionObserver
