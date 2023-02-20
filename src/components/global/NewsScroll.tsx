@@ -86,7 +86,7 @@ const NewsScroll = ({ title, category }: Props) => {
                     key={uuidv4()}
                     id={dataEl.id}
                     title={dataEl.title}
-                    text={dataEl.content_html}
+                    text={dataEl.excerpt}
                     date={dataEl.published_at}
                     categories={dataEl.categories}
                     img={
