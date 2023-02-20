@@ -4,7 +4,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 // Reducers
 import { activeLinkReducer } from "../reducers/activeLink.reducer";
 import { languageReducer } from "../reducers/language.reducer";
-import { newsScrollReducer, postReducer } from "../reducers/dataReducer";
+import {
+  newsScrollReducer,
+  postReducer,
+  searchDataReducer,
+} from "../reducers/dataReducer";
 import { searchReducer } from "../reducers/searchReducer";
 
 export const allReducers = combineReducers({
@@ -13,6 +17,7 @@ export const allReducers = combineReducers({
   newsScroll: newsScrollReducer,
   post: postReducer,
   search: searchReducer,
+  searchData: searchDataReducer,
 });
 
 export const functionalityStore = configureStore({

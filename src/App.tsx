@@ -15,6 +15,7 @@ import "./styles/style.scss";
 import Main from "./pages/Main";
 import NewsArticle from "./pages/NewsArticle";
 import Category from "./pages/Category";
+import SearchResult from "./pages/SearchResult";
 
 // Components
 import Header from "./components/header/Header";
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/" element={<Main />} />
             <Route path="/category/:category" element={<Category />} />
             <Route path="/news/:id" element={<NewsArticle />} />
+            <Route path="/search/:word" element={<SearchResult />} />
           </Routes>
         </AnimatePresence>
         <Footer />

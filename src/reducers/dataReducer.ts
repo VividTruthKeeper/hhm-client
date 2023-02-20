@@ -127,3 +127,17 @@ export const postReducer = (
     }
   }
 };
+
+export const searchDataReducer = (
+  state: IPostData = postInitialState,
+  action: IPostDataAction
+) => {
+  switch (action.type) {
+    case "SET_POST": {
+      return { ...state, data: action.payload };
+    }
+    default: {
+      return state;
+    }
+  }
+};

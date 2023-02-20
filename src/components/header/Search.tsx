@@ -2,6 +2,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // Animations
 import {
@@ -32,12 +33,15 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
     (state) => state.search.value
   );
 
+  const navigate = useNavigate();
+
   return (
     <motion.form
       className="search"
-      onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
-        event.preventDefault()
-      }
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        navigate(`/search/${inputValue}`);
+      }}
       variants={searchMobileMotion}
       initial={isSmall ? "borderRest" : {}}
       animate={isSmall ? (isInputFocused ? "borderActive" : "borderRest") : {}}
@@ -53,6 +57,7 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
         }}
         onBlur={() => {
           setIsInputFocused(false);
+          onInputChange("");
         }}
       />
       <motion.div

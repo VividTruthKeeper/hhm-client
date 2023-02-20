@@ -1,0 +1,16 @@
+.sresult-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+  padding: 5.6rem 0;
+}
+
+.sresult-title {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  h1 {
+    font-size: 2.4rem;
+  }
+}
