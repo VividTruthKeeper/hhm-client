@@ -67,6 +67,10 @@
   color: $body;
   font-size: 1.8rem;
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  line-height: 2.5rem;
 }
 
 .share-btn {
@@ -93,6 +97,9 @@
 }
 
 @media (max-width: 750px) {
+  .news-article-text {
+    gap: 0.8rem;
+  }
   .news-article-inner {
     display: block;
   }
