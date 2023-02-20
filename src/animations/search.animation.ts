@@ -16,7 +16,7 @@ export const searchMotion: Variants = {
 
 export const searchMobileMotion: Variants = {
   rest: {
-    width: "12rem",
+    width: "7rem",
     right: "8rem",
     type: "spring",
     borderColor: "rgba(166, 166, 166, 0)",
@@ -52,13 +52,29 @@ export const searchMobileMotion: Variants = {
   },
 
   loopRest: {
+    width: "2rem",
+    height: "2rem",
+    type: "spring",
+  },
+  loopActive: {
     width: "1.3rem",
     height: "1.4rem",
     type: "spring",
   },
-  loopActive: {
-    width: "2rem",
-    height: "2rem",
-    type: "spring",
+
+  placeholderRest: {
+    opacity: 0,
+  },
+
+  placeholderActive: {
+    opacity: 1,
+  },
+
+  borderRest: {
+    borderColor: "rgba(166, 166, 166, 0)",
+  },
+
+  borderActive: {
+    borderColor: "rgba(166, 166, 166, 1)",
   },
 };
