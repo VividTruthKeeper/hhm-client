@@ -40,7 +40,7 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
       className="search"
       onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        navigate(`/search/${inputValue}`);
+        // navigate(`/search/${inputValue}`);
       }}
       variants={searchMobileMotion}
       initial={isSmall ? "borderRest" : {}}
