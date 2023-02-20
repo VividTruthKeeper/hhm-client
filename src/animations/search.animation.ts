@@ -56,6 +56,7 @@ export const searchMobileMotion: Variants = {
     height: "2rem",
     type: "spring",
   },
+
   loopActive: {
     width: "1.3rem",
     height: "1.4rem",
