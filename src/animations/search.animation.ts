@@ -16,7 +16,7 @@ export const searchMotion: Variants = {
 
 export const searchMobileMotion: Variants = {
   rest: {
-    width: "7rem",
+    width: "5rem",
     right: "8rem",
     type: "spring",
     borderColor: "rgba(166, 166, 166, 0)",
