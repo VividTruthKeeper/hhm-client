@@ -1,8 +1,8 @@
 .news-wrapper {
   display: grid;
   grid-template-columns: 32rem 1fr;
+  grid-template-rows: 20rem;
   gap: 1.6rem;
-  height: 18rem;
 }
 
 .news-info {
@@ -42,10 +42,16 @@
 .news-status-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  column-gap: 1.6rem;
-  row-gap: 0.8rem;
-  flex-wrap: wrap;
+  gap: 1.6rem;
+  overflow: hidden;
+  width: 100%;
+  p {
+    white-space: nowrap;
+
+    &:nth-child(n + 5) {
+      display: none;
+    }
+  }
 }
 
 .news-link {
@@ -111,8 +117,12 @@
 }
 
 .news-image {
-  img {
+  @include wh100;
+  min-height: 18rem;
+  img,
+  span {
     @include wh100;
+    object-fit: cover;
   }
 }
 
