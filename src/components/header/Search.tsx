@@ -71,7 +71,14 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           variants={searchMobileMotion}
-          animate={isSmall ? (isInputFocused ? "loopActive" : "loopRest") : {}}
+          initial={isSmall ? "loopRest" : {}}
+          animate={
+            isSmall
+              ? isInputFocused
+                ? "loopActive"
+                : "loopRest"
+              : { width: "1.3rem" }
+          }
         >
           <g clip-path="url(#clip0_138_523)">
             <path
