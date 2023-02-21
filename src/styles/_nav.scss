@@ -35,6 +35,15 @@
   }
 }
 
+.nav-mid {
+  h1 {
+    text-align: center;
+    color: $main;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+}
+
 .search {
   width: 100%;
   overflow: hidden;

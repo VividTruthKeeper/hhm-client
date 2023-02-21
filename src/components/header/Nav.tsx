@@ -41,7 +41,9 @@ const Nav = () => {
             </div>
             <div className="nav-mid">
               <Link to="/">
-                <Logo />
+                <h1>
+                  Türkmenistan <br /> Habarlar Portaly
+                </h1>
               </Link>
             </div>
             <div className="nav-right">
