@@ -56,6 +56,14 @@ export interface ISearchDataAction {
   payload: ISearchData["value"];
 }
 
+export interface ISearchResult {
+  data: IPostsData[];
+}
+export interface ISearchResultAction {
+  type: "SET_SEARCH_DATA";
+  payload: ISearchResult["data"];
+}
+
 // ALL TYPES BEFORE THIS LINE ==================
 
 export type RootState = ReturnType<typeof allReducers>;

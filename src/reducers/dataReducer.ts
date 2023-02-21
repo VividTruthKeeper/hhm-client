@@ -4,6 +4,8 @@ import {
   INewsScrollAction,
   IPostData,
   IPostDataAction,
+  ISearchResult,
+  ISearchResultAction,
 } from "../types/store.types";
 
 // NewsScroll
@@ -129,12 +131,12 @@ export const postReducer = (
 };
 
 export const searchDataReducer = (
-  state: IPostData = postInitialState,
-  action: IPostDataAction
+  state: ISearchResult = newsScrollInitialState,
+  action: ISearchResultAction
 ) => {
   switch (action.type) {
-    case "SET_POST": {
-      return { ...state, data: action.payload };
+    case "SET_SEARCH_DATA": {
+      return { data: action.payload };
     }
     default: {
       return state;

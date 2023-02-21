@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 // Animations
 import {
@@ -35,8 +36,11 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
 
   const navigate = useNavigate();
 
+  const formRef = useRef(null);
+
   return (
     <motion.form
+      ref={formRef}
       className="search"
       onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
