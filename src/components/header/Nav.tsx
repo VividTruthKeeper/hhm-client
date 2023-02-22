@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Api } from "../../api/Api";
 
 // Icons
 import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
@@ -22,6 +23,7 @@ import { searchMobileMotion } from "../../animations/search.animation";
 const Nav = () => {
   const isSmall = useMediaQuery("(max-width: 850px)");
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
+  const language = new Api("").language;
   return (
     <nav className="nav">
       <div className="container">
@@ -42,7 +44,13 @@ const Nav = () => {
             <div className="nav-mid">
               <Link to="/">
                 <h1>
-                  Türkmenistan <br /> Habarlar Portaly
+                  {language === "TM"
+                    ? "Türkmenistan Habarlar Portaly"
+                    : language === "RU"
+                    ? "Туркменистан новостной портал"
+                    : language === "EN"
+                    ? "Turkmenistan news portal"
+                    : ""}
                 </h1>
               </Link>
             </div>
@@ -81,7 +89,13 @@ const Nav = () => {
             >
               <Link to="/">
                 <h1>
-                  Türkmenistan <br /> Habarlar Portaly
+                  {language === "TM"
+                    ? "Türkmenistan Habarlar Portaly"
+                    : language === "RU"
+                    ? "Туркменистан новостной портал"
+                    : language === "EN"
+                    ? "Turkmenistan news portal"
+                    : ""}
                 </h1>
               </Link>
             </motion.div>
