@@ -62,7 +62,7 @@ const SearchResult = () => {
             <h1>Результаты по поиску "{word}"</h1>
           </div>
           <div className="sresult-content">
-            <CustomNewsScroll data={data} word={word} />
+            <CustomNewsScroll pagination={false} data={data} word={word} />
           </div>
         </div>
       </div>
