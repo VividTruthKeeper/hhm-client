@@ -7,9 +7,6 @@ import Aside from "../components/aside/Aside";
 import NewsScroll from "../components/global/NewsScroll";
 import MainImg from "../components/category/MainImg";
 
-// Images
-import Placeholder from "../assets/images/placeholder3.png";
-
 const Category = () => {
   let { category } = useParams();
   return (

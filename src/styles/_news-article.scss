@@ -62,12 +62,12 @@
 }
 
 .news-article-image {
-  min-height: 30rem;
+  height: 56rem;
   img,
   span {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 

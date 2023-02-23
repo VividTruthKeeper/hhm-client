@@ -21,3 +21,18 @@ export const categoriesParams: IurlParamAdder[] = [
     value: 1,
   },
 ];
+
+export const featuredParams: IurlParamAdder[] = [
+  {
+    name: "count",
+    value: 5,
+  },
+  {
+    name: "page",
+    value: 1,
+  },
+  {
+    name: "featured",
+    value: "true",
+  },
+];

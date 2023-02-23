@@ -1,5 +1,7 @@
 // Types
 import {
+  IFeaturedData,
+  IFeaturedDataAction,
   INewsScroll,
   INewsScrollAction,
   IPostData,
@@ -28,5 +30,12 @@ export const setSearchResult = (
 
 export const setPost = (data: IPostData["data"]): IPostDataAction => ({
   type: "SET_POST",
+  payload: data,
+});
+
+export const setFeatured = (
+  data: IFeaturedData["data"]
+): IFeaturedDataAction => ({
+  type: "SET_FEATURED",
   payload: data,
 });

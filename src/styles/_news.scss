@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  overflow: hidden;
+  overflow: auto;
   width: 100%;
   p {
     white-space: nowrap;
@@ -155,4 +155,11 @@
 }
 
 @media (max-width: 400px) {
+  .news-status-left {
+    p {
+      &:nth-child(n + 4) {
+        display: none;
+      }
+    }
+  }
 }

@@ -121,6 +121,9 @@
 }
 
 @media screen and (max-width: 900px) {
+  .main-content-item {
+    height: 40rem;
+  }
   .main-content-bottom {
     display: none;
   }

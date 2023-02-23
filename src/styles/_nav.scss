@@ -39,7 +39,8 @@
   width: 100%;
   max-width: 70%;
   display: flex;
-  justify-content: flex-start;
+  justify-self: center;
+  justify-content: center;
   h1 {
     width: fit-content;
     text-align: center;

@@ -45,6 +45,14 @@ export interface IPostDataAction {
   type: "SET_POST";
   payload: IPostData["data"];
 }
+export interface IFeaturedData {
+  data: IPostsData[];
+}
+
+export interface IFeaturedDataAction {
+  type: "SET_FEATURED";
+  payload: IFeaturedData["data"];
+}
 
 //
 
