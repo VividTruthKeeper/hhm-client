@@ -59,19 +59,19 @@ const Nav = () => {
                 <li>
                   <a href="#" target={"_blank"}>
                     <Instagram />
-                    <span>hhm@inst.com</span>
+                    {/* <span>hhm@inst.com</span> */}
                   </a>
                 </li>
                 <li>
                   <a href="#" target={"_blank"}>
                     <Facebook />
-                    <span>hhm@face.com</span>
+                    {/* <span>hhm@face.com</span> */}
                   </a>
                 </li>
                 <li>
                   <a href="#" target={"_blank"}>
                     <TikTok />
-                    <span>@hhm</span>
+                    {/* <span>@hhm</span> */}
                   </a>
                 </li>
               </ul>
