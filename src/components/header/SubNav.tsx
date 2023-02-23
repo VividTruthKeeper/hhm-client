@@ -18,6 +18,7 @@ import { url } from "../../url";
 // Components
 import Loader from "../global/Loader";
 import SubNavLi from "./SubNavLi";
+import { categoriesParams } from "../../api/params";
 
 const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
@@ -36,7 +37,7 @@ const SubNav = () => {
   const [data, setData] = useState<ICategoriesData>();
 
   // Api
-  const api = new Api(url + "/categories");
+  const api = new Api(url + "/categories", categoriesParams);
 
   useEffect(() => {
     api.get(data, setData);
