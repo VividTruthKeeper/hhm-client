@@ -67,7 +67,8 @@
 }
 
 .news-text {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
   font-weight: 400;
   color: $body;
   display: -webkit-box;
@@ -131,6 +132,10 @@
 }
 
 @media (max-width: 1024px) {
+  .news-text {
+    font-size: 1.6rem;
+  }
+
   .news-title {
     font-size: 2rem;
   }
@@ -142,6 +147,9 @@
   }
 }
 @media (max-width: 750px) {
+  .news-text {
+    font-size: 1.4rem;
+  }
   .news-title {
     font-size: 1.8rem;
   }
