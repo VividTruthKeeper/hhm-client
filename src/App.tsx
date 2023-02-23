@@ -18,6 +18,7 @@ import NewsArticle from "./pages/NewsArticle";
 import Category from "./pages/Category";
 import SearchResult from "./pages/SearchResult";
 import AllPosts from "./pages/AllPosts";
+import NotFound404 from "./pages/NotFound404";
 
 // Components
 import Header from "./components/header/Header";
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/news/:id" element={<NewsArticle />} />
             <Route path="/search/:word" element={<SearchResult />} />
             <Route path="/all/:category" element={<AllPosts />} />
+            <Route path="*" element={<NotFound404 />} />
           </Routes>
         </AnimatePresence>
         <Footer />
