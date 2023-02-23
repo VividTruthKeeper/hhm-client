@@ -17,12 +17,12 @@ import Main from "./pages/Main";
 import NewsArticle from "./pages/NewsArticle";
 import Category from "./pages/Category";
 import SearchResult from "./pages/SearchResult";
+import AllPosts from "./pages/AllPosts";
 
 // Components
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import { Api } from "./api/Api";
-// import { useEffect } from "react";
 
 const App = () => {
   const location = useLocation();
@@ -42,6 +42,7 @@ const App = () => {
             <Route path="/category/:category" element={<Category />} />
             <Route path="/news/:id" element={<NewsArticle />} />
             <Route path="/search/:word" element={<SearchResult />} />
+            <Route path="/all/:category" element={<AllPosts />} />
           </Routes>
         </AnimatePresence>
         <Footer />

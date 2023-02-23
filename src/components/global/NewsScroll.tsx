@@ -74,7 +74,7 @@ const NewsScroll = ({ title, category }: Props) => {
         {title === true ? (
           <SectionTitle
             title="Лента новостей"
-            linkData={{ link: "/", title: "Посмотреть все" }}
+            linkData={{ link: "/all/", title: "Посмотреть все" }}
           />
         ) : null}
         <div className="news-scroll-inner">
