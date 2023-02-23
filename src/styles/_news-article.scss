@@ -11,14 +11,14 @@
 }
 .news-article-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 1.6rem;
 }
 
 .news-article-content {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  // gap: 2.4rem;
 }
 
 .news-article-status {
@@ -43,13 +43,13 @@
   @include roboto;
   color: $main;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
 .news-article-date {
   color: $body;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   @include roboto;
 }
@@ -86,7 +86,7 @@
   background: $main;
   color: $white;
   width: fit-content;
-  display: flex;
+  display: none;
   align-items: center;
   padding: 1rem;
   @include raleway;
