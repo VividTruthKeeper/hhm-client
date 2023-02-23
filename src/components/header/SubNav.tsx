@@ -59,12 +59,6 @@ const SubNav = () => {
         <ul className="subnav-inner">
           {data ? (
             <>
-              <SubNavLi
-                isNotCategory
-                dataEl={{ id: 0, name: "Главная" }}
-                activeLink={activeLink}
-                onClickLink={onClickLink}
-              />
               {data.data.map((dataEl) => {
                 return (
                   <SubNavLi

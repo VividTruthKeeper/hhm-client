@@ -31,12 +31,12 @@ export const searchMobileMotion: Variants = {
   logoRest: {
     display: "block",
     opacity: 1,
-    transform: "translateX(0%)",
+    transform: "translateX(0%) translateY(-50%)",
     type: "spring",
   },
   logoActive: {
     opacity: 0,
-    transform: "translateX(-150%)",
+    transform: "translateX(-150%) translateY(-50%)",
     type: "spring",
   },
 

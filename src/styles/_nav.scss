@@ -20,7 +20,7 @@
     .nav-mid {
       position: absolute;
       left: 0;
-      top: 3rem;
+      top: 50%;
     }
     .search-wrap {
       position: absolute;
@@ -36,7 +36,12 @@
 }
 
 .nav-mid {
+  width: 100%;
+  max-width: 60%;
+  display: flex;
+  justify-content: flex-start;
   h1 {
+    width: fit-content;
     text-align: center;
     color: $main;
     font-weight: bold;
@@ -201,6 +206,11 @@
 
 // Media
 @media screen and (max-width: 850px) {
+  .nav-mid {
+    h1 {
+      // text-align: start;
+    }
+  }
   .nav-right {
     display: none;
   }

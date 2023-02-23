@@ -14,7 +14,7 @@ export const newsScrollParams: IurlParamAdder[] = [
 export const categoriesParams: IurlParamAdder[] = [
   {
     name: "count",
-    value: 7,
+    value: 5,
   },
   {
     name: "page",

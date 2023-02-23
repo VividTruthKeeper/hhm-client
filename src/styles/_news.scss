@@ -3,6 +3,10 @@
   grid-template-columns: 32rem 1fr;
   grid-template-rows: 20rem;
   gap: 1.6rem;
+
+  .loader {
+    margin: 4rem 0;
+  }
 }
 
 .news-info {
@@ -146,7 +150,7 @@
     flex-direction: column;
   }
   .news-image {
-    min-height: 16rem;
+    height: 25rem;
   }
 }
 

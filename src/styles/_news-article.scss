@@ -1,5 +1,8 @@
 .news-article {
   padding: 5.6rem 0;
+  .loader {
+    margin: 4rem 0;
+  }
 }
 .news-article-inner {
   display: grid;
@@ -90,6 +93,13 @@
   font-size: 1.6rem;
   gap: 1rem;
   cursor: pointer;
+}
+
+.sresult-content {
+  .news-text {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
 }
 
 @media (max-width: 1024px) {
