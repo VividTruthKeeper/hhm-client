@@ -14,7 +14,7 @@ const ContentItem = ({ type = "small", img, title, id }: IProps) => {
     <div className={`main-content-item main-content-item__${type}`}>
       <LazyLoadImage
         src={img}
-        alt=""
+        alt={img}
         effect="blur"
         useIntersectionObserver
         style={{ background: `url(${img})` }}

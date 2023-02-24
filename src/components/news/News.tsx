@@ -24,7 +24,7 @@ const News = ({ id, title, text, categories, date, img }: Props) => {
         <div className="news-image">
           <LazyLoadImage
             src={img}
-            alt="image"
+            alt={img}
             useIntersectionObserver
             effect="blur"
           />

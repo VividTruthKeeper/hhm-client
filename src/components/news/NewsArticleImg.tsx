@@ -8,7 +8,12 @@ interface IProps {
 const NewsArticleImg = ({ img }: IProps) => {
   return (
     <div className={"news-article-image"}>
-      <LazyLoadImage src={img} alt="" effect="blur" useIntersectionObserver />
+      <LazyLoadImage
+        src={img}
+        alt={img}
+        effect="blur"
+        useIntersectionObserver
+      />
     </div>
   );
 };
