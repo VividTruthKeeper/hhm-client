@@ -48,6 +48,23 @@ const NewsArticle = () => {
     }
   }, [language, lastLanguage]);
 
+  // SEO
+  useEffect(() => {
+    const metaDescription: any = document.querySelector(
+      "meta#meta-description"
+    );
+    const metaKeywords: any = document.querySelector("meta#meta-keywords");
+    const title: any = document.querySelector("title");
+    console.log(metaDescription);
+    try {
+      title.innerText = data.data.powerseo_title;
+      metaDescription.content = data.data.powerseo_description;
+      metaKeywords.content = data.data.powerseo_keywords;
+    } catch (err) {
+      console.log(err);
+    }
+  }, [data]);
+
   return (
     <motion.div
       className="news-article"
