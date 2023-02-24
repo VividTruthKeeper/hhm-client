@@ -49,7 +49,8 @@ const SubNav = () => {
       onClickLink(0);
       return;
     }
-    const category = location.pathname[location.pathname.length - 1];
+    const category =
+      location.pathname.split("/")[location.pathname.split("/").length - 1];
     onClickLink(parseInt(category));
   }, [location]);
 
