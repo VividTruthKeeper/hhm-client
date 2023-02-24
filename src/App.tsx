@@ -42,8 +42,8 @@ const App = () => {
         : language === "RU"
         ? (title.innerText = "Туркменистан новостной портал")
         : language === "TM"
-        ? (title.innerText = "Turkmenistan habarlar portaly")
-        : "Turkmenistan habarlar portaly";
+        ? (title.innerText = "Türkmenistan Habarlar Portaly")
+        : "Türkmenistan Habarlar Portaly";
     } catch (err) {
       console.log(err);
     }
