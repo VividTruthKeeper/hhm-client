@@ -41,6 +41,7 @@ export interface IPostsData {
   featured_images: FeaturedImage[];
   content_html: string;
   categories: Category[];
+  video: null | string;
   powerseo_title: null | string;
   powerseo_description: null | string;
   powerseo_keywords: null | string;

@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Aside from "../components/aside/Aside";
 import NewsArticleSlider from "../components/news/NewsArticleSlider";
 import Loader from "../components/global/Loader";
+import VideosItem from "../components/videos/VideosItem";
 
 // Icons
 import { ReactComponent as Share } from "../assets/icons/share.svg";
@@ -55,7 +56,6 @@ const NewsArticle = () => {
     );
     const metaKeywords: any = document.querySelector("meta#meta-keywords");
     const title: any = document.querySelector("title");
-    console.log(metaDescription);
     try {
       title.innerText = data.data.powerseo_title;
       metaDescription.content = data.data.powerseo_description;
@@ -64,6 +64,8 @@ const NewsArticle = () => {
       console.log(err);
     }
   }, [data]);
+
+  console.log(data.data);
 
   return (
     <motion.div
@@ -98,6 +100,18 @@ const NewsArticle = () => {
                 <h2 className="news-article-title">{data.data.title}</h2>
               </div>
               <div className="news-article-slider-wrapper">
+                {/* {data.data.video ? (
+                  <VideosItem
+                    url={data.data.video}
+                    placeholder={
+                      data.data.featured_images[0]
+                        ? data.data.featured_images[0].path
+                        : ""
+                    }
+                  />
+                ) : (
+                  <NewsArticleSlider images={data.data.featured_images} />
+                )} */}
                 <NewsArticleSlider images={data.data.featured_images} />
               </div>
               <p
