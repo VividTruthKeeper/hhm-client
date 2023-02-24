@@ -65,8 +65,6 @@ const NewsArticle = () => {
     }
   }, [data]);
 
-  console.log(data.data);
-
   return (
     <motion.div
       className="news-article"
