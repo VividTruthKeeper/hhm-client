@@ -50,6 +50,7 @@ export const newsScrollInitialState = {
           name: "",
         },
       ],
+      video: null,
       powerseo_title: "",
       powerseo_description: "",
       powerseo_keywords: "",
@@ -81,6 +82,7 @@ export const postInitialState = {
       slug: "",
       excerpt: "",
       published_at: "",
+      video: null,
       featured_images: [
         {
           id: -1,
@@ -140,6 +142,7 @@ export const featuredInitialState = {
       slug: "",
       excerpt: "",
       published_at: "",
+      video: null,
       featured_images: [
         {
           id: -1,
