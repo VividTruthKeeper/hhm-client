@@ -12,7 +12,13 @@ interface IProps {
 const ContentItem = ({ type = "small", img, title, id }: IProps) => {
   return (
     <div className={`main-content-item main-content-item__${type}`}>
-      <LazyLoadImage src={img} alt="" effect="blur" useIntersectionObserver />
+      <LazyLoadImage
+        src={img}
+        alt=""
+        effect="blur"
+        useIntersectionObserver
+        style={{ background: `url(${img})` }}
+      />
       <Link to={`/news/${id}`} className="main-content-item-overlay">
         <h2>{title}</h2>
       </Link>
