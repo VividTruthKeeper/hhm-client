@@ -17,7 +17,11 @@ const ContentItem = ({ type = "small", img, title, id }: IProps) => {
         alt={img}
         effect="blur"
         useIntersectionObserver
-        style={{ background: `url(${img})` }}
+        style={{
+          background: `url(${img})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       />
       <Link to={`/news/${id}`} className="main-content-item-overlay">
         <h2>{title}</h2>

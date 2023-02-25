@@ -23,8 +23,9 @@ const SubNavLi = ({
 }: IProps) => {
   return (
     <motion.li
-      initial={linkMotion.rest}
-      animate={activeLink === dataEl.id ? linkMotion.active : linkMotion.rest}
+      initial={"rest"}
+      animate={activeLink === dataEl.id ? "active" : "rest"}
+      variants={linkMotion}
     >
       <motion.div>
         <Link

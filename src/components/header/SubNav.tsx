@@ -14,11 +14,12 @@ import { setActiveLink } from "../../actions/setActiveLink.action";
 // Api
 import { Api } from "../../api/Api";
 import { url } from "../../url";
+import { categoriesParams } from "../../api/params";
 
 // Components
 import Loader from "../global/Loader";
 import SubNavLi from "./SubNavLi";
-import { categoriesParams } from "../../api/params";
+import SubNavLiMain from "./SubNavLiMain";
 
 const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
@@ -60,16 +61,21 @@ const SubNav = () => {
         <ul className="subnav-inner">
           {data ? (
             <>
-              {data.data.map((dataEl) => {
-                return (
+              <SubNavLiMain
+                data={data}
+                activeLink={activeLink}
+                onClickLink={onClickLink}
+              />
+              {data.data.map((dataEl, index) =>
+                index <= 4 ? (
                   <SubNavLi
                     key={uuidv4()}
                     dataEl={dataEl}
                     activeLink={activeLink}
                     onClickLink={onClickLink}
                   />
-                );
-              })}
+                ) : null
+              )}
             </>
           ) : (
             <Loader />

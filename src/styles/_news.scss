@@ -131,6 +131,15 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .news-status-left {
+    p {
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
+}
 @media (max-width: 1024px) {
   .news-text {
     font-size: 1.6rem;
@@ -158,14 +167,19 @@
     flex-direction: column;
   }
   .news-image {
-    height: 25rem;
+    height: 35rem;
   }
 }
 
+@media (max-width: 550px) {
+  .news-image {
+    height: 28rem;
+  }
+}
 @media (max-width: 400px) {
   .news-status-left {
     p {
-      &:nth-child(n + 4) {
+      &:nth-child(n + 2) {
         display: none;
       }
     }
