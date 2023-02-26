@@ -46,7 +46,7 @@ const MainContent = () => {
         {data[0].id > -1 ? (
           data.length >= 5 ? (
             <div className="main-content">
-              <SectionTitle title="Главное" />
+              {/* <SectionTitle title="Главное" /> */}
               <ContentSlider data={data} />
               <div className="main-content-top">
                 <ContentItem
