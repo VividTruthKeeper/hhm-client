@@ -18,7 +18,7 @@ const ContentItem = ({ type = "small", img, title, id }: IProps) => {
         effect="blur"
         useIntersectionObserver
         style={{
-          background: `url(${img})`,
+          backgroundImage: `url(${img})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
