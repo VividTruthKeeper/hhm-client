@@ -58,7 +58,7 @@ const SubNav = () => {
   return (
     <nav className="subnav">
       <div className="container">
-        <ul className="subnav-inner">
+        <ul className={`subnav-inner ${!data ? "loading" : ""}`}>
           {data ? (
             <>
               <SubNavLiMain

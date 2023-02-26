@@ -159,6 +159,10 @@
   align-items: center;
   gap: 2.4rem;
 
+  &.loading {
+    grid-template-columns: 1fr !important;
+  }
+
   li {
     color: $black;
     width: 100%;
