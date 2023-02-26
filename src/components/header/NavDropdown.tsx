@@ -31,6 +31,17 @@ const NavDropdown = ({
       animate={dropdownOpen ? "active" : "rest"}
     >
       <ul>
+        <li onClick={() => onClickLink(0)} key={uuidv4()}>
+          <Link to="/">
+            <motion.span
+              variants={dropdownMotion}
+              initial={"linkRest"}
+              animate={activeLink === 0 ? "linkActive" : "linkRest"}
+            >
+              Главная
+            </motion.span>
+          </Link>
+        </li>
         {data.data.map((el) => (
           <li onClick={() => onClickLink(el.id)} key={uuidv4()}>
             <Link to={`/category/${el.id}`}>
