@@ -2,7 +2,8 @@
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 // Images
-import { ReactComponent as ArrRight } from "../../assets/icons/arrow-right.svg";
+// import { ReactComponent as ArrRight } from "../../assets/icons/arrow-right.svg";
+import placeholder from "../../assets/images/placeholder.webp";
 // Components
 import NewsCategory from "../global/NewsCategory";
 import NewsDate from "../global/NewsDate";
@@ -24,7 +25,8 @@ const AsideNews = ({ title, date, img, category, link }: Props) => {
             src={img}
             alt={img}
             useIntersectionObserver
-            effect="blur"
+            effect="opacity"
+            placeholderSrc={placeholder}
           />
         </div>
         <div className="aside-news-info">

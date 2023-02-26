@@ -3,6 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import placeholder from "../../assets/images/placeholder.webp";
 
 // Types
 import { RootState } from "../../types/store.types";
@@ -18,6 +19,7 @@ const MainImg = () => {
         data[0].id > -1 ? (
           <Link to={`/news/${data[0].id}`} className="main-img">
             <LazyLoadImage
+              placeholderSrc={placeholder}
               src={
                 (data[0].featured_images.length > 0
                   ? data[0].featured_images[0].path
@@ -29,7 +31,7 @@ const MainImg = () => {
                   : "") as string
               }
               useIntersectionObserver
-              effect="blur"
+              effect="opacity"
             />
 
             <div className="main-img-overlay">

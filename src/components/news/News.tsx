@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import NewsCategory from "../global/NewsCategory";
 import NewsDate from "../global/NewsDate";
 import { IPostsData } from "../../types/data.types";
+import placeholder from "../../assets/images/placeholder.webp";
 
 interface Props {
   id: IPostsData["id"];
@@ -26,7 +27,8 @@ const News = ({ id, title, text, categories, date, img }: Props) => {
             src={img}
             alt={img}
             useIntersectionObserver
-            effect="blur"
+            effect="opacity"
+            placeholderSrc={placeholder}
           />
         </div>
         <div className="news-info">

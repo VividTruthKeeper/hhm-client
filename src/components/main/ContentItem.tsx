@@ -1,6 +1,7 @@
 // Modules
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import placeholder from "../../assets/images/placeholder.webp";
 
 interface IProps {
   type?: "small" | "big";
@@ -15,8 +16,9 @@ const ContentItem = ({ type = "small", img, title, id }: IProps) => {
       <LazyLoadImage
         src={img}
         alt={img}
-        effect="blur"
+        effect="opacity"
         useIntersectionObserver
+        placeholderSrc={placeholder}
         style={{
           backgroundImage: `url(${img})`,
           backgroundRepeat: "no-repeat",

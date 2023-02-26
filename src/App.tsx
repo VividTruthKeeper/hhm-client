@@ -8,7 +8,7 @@ import ScrollToTop from "./hooks/ScrollToTop";
 import "swiper/swiper.css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 import "react-calendar/dist/Calendar.css";
 import "./styles/style.scss";
 
