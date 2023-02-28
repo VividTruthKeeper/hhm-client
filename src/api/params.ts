@@ -40,7 +40,7 @@ export const featuredParams: IurlParamAdder[] = [
 export const videoParams: IurlParamAdder[] = [
   {
     name: 'count',
-    value: 5,
+    value: 10,
   },
   {
     name: 'page',
