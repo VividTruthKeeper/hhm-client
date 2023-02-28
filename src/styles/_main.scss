@@ -32,10 +32,8 @@
     z-index: 2;
     position: absolute;
     top: 0;
-    left: 50%;
-    height: 100%;
-    width: 98%;
-    transform: translateX(-50%);
+    left: 0%;
+    @include wh100;
   }
 
   img {

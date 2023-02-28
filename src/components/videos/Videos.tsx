@@ -31,7 +31,6 @@ const Videos = () => {
       setLastLanguage(language);
     }
   }, [lastLanguage, language]);
-
   return (
     <section className="videos">
       <div className="videos-inner">
