@@ -38,21 +38,23 @@ const Videos = () => {
         <SectionTitle
           title="Видео"
           givenClass="videos"
-          linkData={{ link: '/', title: 'Посмотреть все' }}
+          linkData={{ link: '/all?type=video', title: 'Посмотреть все' }}
         />
         <div className="videos-items">
-          {data.map((videosDataItem) => {
-            return (
-              <VideosItem
-                key={uuiv4()}
-                url={videosDataItem.video || ''}
-                placeholder={
-                  videosDataItem.featured_images[0] ? videosDataItem.featured_images[0].path : ''
-                }
-                date={videosDataItem.published_at}
-                excerpt={videosDataItem.excerpt}
-              />
-            );
+          {data.map((videosDataItem, index) => {
+            if (index <= 4) {
+              return (
+                <VideosItem
+                  key={uuiv4()}
+                  url={videosDataItem.video || ''}
+                  placeholder={
+                    videosDataItem.featured_images[0] ? videosDataItem.featured_images[0].path : ''
+                  }
+                  date={videosDataItem.published_at}
+                  excerpt={videosDataItem.excerpt}
+                />
+              );
+            }
           })}
         </div>
       </div>
