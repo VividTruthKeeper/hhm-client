@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import News from '../news/News';
 import SectionTitle from './SectionTitle';
 import Loader from './Loader';
+import Pagination from './Pagination';
 
 // Api
 import { url } from '../../url';
