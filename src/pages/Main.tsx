@@ -21,7 +21,7 @@ const Main = () => {
             <MainContent />
             <div className="news-outer-wrapper">
               <NewsScroll title={true} />
-              <Aside />
+              <Aside type="popular" />
             </div>
             <Videos />
           </div>

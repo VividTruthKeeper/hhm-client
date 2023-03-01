@@ -112,7 +112,7 @@ const NewsArticle = () => {
           ) : (
             <Loader />
           )}
-          <Aside />
+          <Aside type="popular" />
         </div>
       </div>
     </motion.div>
