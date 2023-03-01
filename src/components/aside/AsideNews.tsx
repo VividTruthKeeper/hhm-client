@@ -1,23 +1,24 @@
 // Modules
-import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 // Images
 // import { ReactComponent as ArrRight } from "../../assets/icons/arrow-right.svg";
-import placeholder from '../../assets/images/placeholder.webp';
+import placeholder from "../../assets/images/placeholder.webp";
 // Components
-import NewsCategory from '../global/NewsCategory';
-import NewsDate from '../global/NewsDate';
+import NewsCategory from "../global/NewsCategory";
+import NewsDate from "../global/NewsDate";
 
 interface Props {
   title: string;
   date: string;
   img: string;
   category: string;
+  id: number;
 }
 
-const AsideNews = ({ title, date, img, category }: Props) => {
+const AsideNews = ({ title, date, img, category, id }: Props) => {
   return (
-    <div className="aside-news">
+    <Link to={`/news/${id}`} className="aside-news">
       <div className="aside-news-wrapper">
         <div className="aside-news-image">
           <LazyLoadImage
@@ -38,7 +39,7 @@ const AsideNews = ({ title, date, img, category }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
