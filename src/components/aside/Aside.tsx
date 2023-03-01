@@ -1,13 +1,16 @@
 // Modules
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
-import axios, { AxiosResponse } from 'axios';
 import { url } from '../../url';
+import { Api } from '../../api/Api';
+import { AsideParams } from '../../api/params';
 
 // Components
 import SectionTitle from '../global/SectionTitle';
 import AsideNews from './AsideNews';
 import Calendar from './Calendar';
+import { IPostsData } from '../../types/data.types';
+import Loader from '../global/Loader';
 
 interface Props {
   type: 'latest' | 'popular';
@@ -17,20 +20,21 @@ interface Ipost {
   id: number;
   title: string;
   img: string;
-  date: string | number;
+  published_at: string | number;
   category: string;
 }
 
+interface Idata {
+  data: IPostsData[];
+}
+
 const Aside = ({ type }: Props) => {
-  const [data, setData] = useState();
+  const api = new Api(url + `${type === 'popular' ? '/popular' : '/popular'}/posts`, AsideParams);
+
+  const [data, setData] = useState<Idata>();
 
   useEffect(() => {
-    axios
-      .get(`${url}/${type === 'popular' ? 'popular/posts' : 'popular/posts'}?locale=ru`)
-      .then((res) => {
-        setData(res.data);
-        console.log(res, res.data);
-      });
+    api.get(data, setData);
   }, []);
 
   return (
@@ -38,41 +42,21 @@ const Aside = ({ type }: Props) => {
       <div className="aside-wrapper">
         <SectionTitle title={type === 'latest' ? 'Последние новости' : 'Самое читаемое'} />
         <div className="aside-inner">
-          <AsideNews
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            date="12.01.2023"
-            category="Политика"
-            img={''}
-            link=""
-          />
-          <AsideNews
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            date="12.01.2023"
-            category="Политика"
-            img={''}
-            link=""
-          />
-          <AsideNews
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            date="12.01.2023"
-            category="Политика"
-            img={''}
-            link=""
-          />
-          <AsideNews
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            date="12.01.2023"
-            category="Политика"
-            img={''}
-            link=""
-          />
-          <AsideNews
-            title="Президент Туркменистана провёл рабочее совещание по цифровой системе"
-            date="12.01.2023"
-            category="Политика"
-            img={''}
-            link=""
-          />
+          {data ? (
+            data.data.map((el) => {
+              return (
+                <AsideNews
+                  key={uuidv4()}
+                  title={el.title}
+                  date={el.published_at}
+                  category={el.categories[0].name}
+                  img={el.featured_images[0] ? el.featured_images[0].path : ''}
+                />
+              );
+            })
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
       <div className="aside-calendar">
