@@ -1,17 +1,18 @@
 // Modules
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 // Reducers
-import { activeLinkReducer } from '../reducers/activeLink.reducer';
-import { languageReducer } from '../reducers/language.reducer';
+import { activeLinkReducer } from "../reducers/activeLink.reducer";
+import { languageReducer } from "../reducers/language.reducer";
 import {
   newsScrollReducer,
   postReducer,
   searchDataReducer,
   featuredReducer,
   videoReducer,
-} from '../reducers/dataReducer';
-import { searchReducer } from '../reducers/searchReducer';
+  categoriesReducer,
+} from "../reducers/dataReducer";
+import { searchReducer } from "../reducers/searchReducer";
 
 export const allReducers = combineReducers({
   activeLink: activeLinkReducer,
@@ -22,6 +23,7 @@ export const allReducers = combineReducers({
   searchData: searchDataReducer,
   featured: featuredReducer,
   video: videoReducer,
+  categories: categoriesReducer,
 });
 
 export const functionalityStore = configureStore({
