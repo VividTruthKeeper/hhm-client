@@ -93,6 +93,8 @@
   flex-direction: column;
   gap: 2.4rem;
   .main-content-item {
+    border-radius: 0.5rem;
+    overflow: hidden;
     height: 40rem;
   }
 }
