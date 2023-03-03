@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import News from "../news/News";
 import SectionTitle from "./SectionTitle";
 import Loader from "./Loader";
+import Pagination from "./Pagination";
 
 // Api
 import { url } from "../../url";
@@ -23,11 +24,14 @@ import { setNewsScroll } from "../../actions/setData";
 interface Props {
   title: boolean;
   category?: number;
+  count?: number;
+  avoidFirst?: boolean;
 }
 
-const NewsScroll = ({ title, category }: Props) => {
+const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
   const params = newsScrollParams.slice();
   category ? params.push({ name: "category", value: category }) : null;
+  count ? (params[0].value = count) : null;
 
   const api = new Api(url + "/posts", params);
   const language = api.language;
@@ -61,7 +65,7 @@ const NewsScroll = ({ title, category }: Props) => {
 
   useEffect(() => {
     const filtered = rawData.filter((el, index) => {
-      if (index > 0) {
+      if (index >= 0) {
         return el;
       }
     });
@@ -74,28 +78,48 @@ const NewsScroll = ({ title, category }: Props) => {
         {title === true ? (
           <SectionTitle
             title="Лента новостей"
-            linkData={{ link: "/all/null", title: "Посмотреть все" }}
+            linkData={{ link: "/all", title: "Посмотреть все" }}
           />
         ) : null}
         <div className="news-scroll-inner">
           {filteredData.length > 0 ? (
             (filteredData as IPostsData[])[0].id > -1 ? (
               (filteredData as IPostsData[]).map((dataEl, index) => {
-                return (
-                  <News
-                    key={uuidv4()}
-                    id={dataEl.id}
-                    title={dataEl.title}
-                    text={dataEl.excerpt}
-                    date={dataEl.published_at}
-                    categories={dataEl.categories}
-                    img={
-                      dataEl.featured_images[0]
-                        ? dataEl.featured_images[0].path
-                        : ""
-                    }
-                  />
-                );
+                if (avoidFirst) {
+                  if (index > 0) {
+                    return (
+                      <News
+                        key={uuidv4()}
+                        id={dataEl.id}
+                        title={dataEl.title}
+                        text={dataEl.excerpt}
+                        date={dataEl.published_at}
+                        categories={dataEl.categories}
+                        img={
+                          dataEl.featured_images[0]
+                            ? dataEl.featured_images[0].path
+                            : ""
+                        }
+                      />
+                    );
+                  }
+                } else {
+                  return (
+                    <News
+                      key={uuidv4()}
+                      id={dataEl.id}
+                      title={dataEl.title}
+                      text={dataEl.excerpt}
+                      date={dataEl.published_at}
+                      categories={dataEl.categories}
+                      img={
+                        dataEl.featured_images[0]
+                          ? dataEl.featured_images[0].path
+                          : ""
+                      }
+                    />
+                  );
+                }
               })
             ) : (
               <Loader />

@@ -13,12 +13,12 @@ interface Props {
   date: string;
   img: string;
   category: string;
-  link: string;
+  id: number;
 }
 
-const AsideNews = ({ title, date, img, category, link }: Props) => {
+const AsideNews = ({ title, date, img, category, id }: Props) => {
   return (
-    <Link to={link} className="aside-news">
+    <Link to={`/news/${id}`} className="aside-news">
       <div className="aside-news-wrapper">
         <div className="aside-news-image">
           <LazyLoadImage

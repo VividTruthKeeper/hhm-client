@@ -45,10 +45,15 @@ const Category = () => {
             ) : (
               <Loader />
             )}
-            <NewsScroll title={false} category={parseInt(category as string)} />
+            <NewsScroll
+              title={false}
+              category={parseInt(category as string)}
+              count={11}
+              avoidFirst
+            />
           </div>
           <div className="category-right">
-            <Aside />
+            <Aside type="latest" />
           </div>
         </div>
       </div>

@@ -27,6 +27,20 @@
   @include wh100;
   overflow: hidden;
 
+  .bg-blur {
+    backdrop-filter: blur(0.3rem);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    @include wh100;
+  }
+
+  img {
+    position: relative;
+    z-index: 3;
+  }
+
   span {
     display: block !important;
     @include wh100;
@@ -42,15 +56,11 @@
     top: 0;
     left: 0;
     @include wh100;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
     display: flex;
     padding: 1.6rem;
     align-items: flex-end;
-    z-index: 2;
+    z-index: 4;
 
     h2 {
       color: $white;

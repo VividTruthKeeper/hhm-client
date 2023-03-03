@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import Aside from "../components/aside/Aside";
 import NewsArticleSlider from "../components/news/NewsArticleSlider";
 import Loader from "../components/global/Loader";
-import VideosItem from "../components/videos/VideosItem";
+// import VideosItem from "../components/videos/VideosItem";
 
 // Icons
 import { ReactComponent as Share } from "../assets/icons/share.svg";
@@ -123,7 +123,7 @@ const NewsArticle = () => {
           ) : (
             <Loader />
           )}
-          <Aside />
+          <Aside type="latest" />
         </div>
       </div>
     </motion.div>

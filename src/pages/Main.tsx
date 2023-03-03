@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // Components
 import Aside from "../components/aside/Aside";
 import NewsScroll from "../components/global/NewsScroll";
-// import Videos from "../components/videos/Videos";
+import Videos from "../components/videos/Videos";
 import MainContent from "../components/main/MainContent";
 
 const Main = () => {
@@ -22,9 +22,9 @@ const Main = () => {
             <MainContent />
             <div className="news-outer-wrapper">
               <NewsScroll title={true} />
-              <Aside />
+              <Aside type="popular" />
             </div>
-            {/* <Videos /> */}
+            <Videos />
           </div>
         </div>
       </div>

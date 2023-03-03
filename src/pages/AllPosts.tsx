@@ -1,52 +1,52 @@
 // Modules
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // Api
-import { Api } from "../api/Api";
-import { url } from "../url";
+import { Api } from '../api/Api';
+import { url } from '../url';
 
 // Components
-import CustomNewsScroll from "../components/global/CustomNewsScroll";
-import Loader from "../components/global/Loader";
+import CustomNewsScroll from '../components/global/CustomNewsScroll';
+import Loader from '../components/global/Loader';
 
 // Types
-import { IurlParamAdder } from "../types/api.types";
-import { IPostsData } from "../types/data.types";
+import { IurlParamAdder } from '../types/api.types';
+import { IPostsData } from '../types/data.types';
+import SectionTitle from '../components/global/SectionTitle';
 
 const AllPosts = () => {
-  const { category } = useParams();
-  const categoryParam =
-    category !== ("null" || undefined) ? (category as string) : "";
+  const [searchParams, setSearchParams] = useSearchParams();
+  const type = searchParams.get('type') || null;
 
   const [params, setParams] = useState<IurlParamAdder[]>(
-    category !== ("null" || undefined)
+    type !== null
       ? [
           {
-            name: "count",
+            name: 'count',
             value: 10,
           },
           {
-            name: "page",
+            name: 'page',
             value: 1,
           },
           {
-            name: "category",
-            value: categoryParam,
+            name: 'type',
+            value: type,
           },
         ]
       : [
           {
-            name: "count",
+            name: 'count',
             value: 10,
           },
           {
-            name: "page",
+            name: 'page',
             value: 1,
           },
-        ]
+        ],
   );
-  const api = new Api(url + "/posts", params);
+  const api = new Api(url + '/posts', params);
 
   const language = api.language;
 
@@ -68,11 +68,8 @@ const AllPosts = () => {
     <main className="all">
       <div className="container">
         <div className="all-inner">
-          {data ? (
-            <CustomNewsScroll data={data} pagination={false} />
-          ) : (
-            <Loader />
-          )}
+          {type === 'video' ? <SectionTitle title={'Видео'} /> : null}
+          {data ? <CustomNewsScroll data={data} pagination={false} /> : <Loader />}
         </div>
       </div>
     </main>
