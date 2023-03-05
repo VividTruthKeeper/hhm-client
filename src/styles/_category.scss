@@ -92,6 +92,11 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  .main-content-item {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: 40rem;
+  }
 }
 
 @media (max-width: 1024px) {

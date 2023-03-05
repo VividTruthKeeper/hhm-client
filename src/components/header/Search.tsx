@@ -28,6 +28,10 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
     dispatch(setSearch(value));
   };
 
+  const searchValue = useSelector<RootState, RootState["search"]["value"]>(
+    (state) => state.search.value
+  );
+
   // redux
   const dispatch = useDispatch();
   const inputValue = useSelector<RootState, RootState["search"]["value"]>(
@@ -44,7 +48,9 @@ const Search = ({ isSmall, isInputFocused, setIsInputFocused }: IProps) => {
       className="search"
       onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        navigate(`/search/${inputValue}`);
+        if (searchValue.length > 0) {
+          navigate(`/search/${inputValue}`);
+        }
       }}
       variants={searchMobileMotion}
       initial={isSmall ? "borderRest" : {}}

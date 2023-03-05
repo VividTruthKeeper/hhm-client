@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 // Types
-import { RootState } from "../../types/store.types";
+import { ICategoryData, RootState } from "../../types/store.types";
 import { ICategoriesData } from "../../types/data.types";
 
 // Actions
@@ -20,6 +20,7 @@ import { categoriesParams } from "../../api/params";
 import Loader from "../global/Loader";
 import SubNavLi from "./SubNavLi";
 import SubNavLiMain from "./SubNavLiMain";
+import { setCategories } from "../../actions/setData";
 
 const SubNav = () => {
   const activeLink = useSelector<RootState, RootState["activeLink"]["active"]>(
@@ -29,19 +30,23 @@ const SubNav = () => {
     (state) => state.language.title
   );
 
+  const categories = useSelector<RootState, RootState["categories"]["data"]>(
+    (state) => state.categories.data
+  );
+
   const dispatch = useDispatch();
 
   const onClickLink = (active: number) => {
     dispatch(setActiveLink(active));
   };
 
-  const [data, setData] = useState<ICategoriesData>();
-
   // Api
   const api = new Api(url + "/categories", categoriesParams);
 
   useEffect(() => {
-    api.get(data, setData);
+    api.get(categories, (data: ICategoryData["data"]) =>
+      dispatch(setCategories(data))
+    );
   }, [language]);
 
   const location = useLocation();
@@ -58,15 +63,19 @@ const SubNav = () => {
   return (
     <nav className="subnav">
       <div className="container">
-        <ul className={`subnav-inner ${!data ? "loading" : ""}`}>
-          {data ? (
+        <ul
+          className={`subnav-inner ${
+            !(categories.data[0].id > -1) ? "loading" : ""
+          }`}
+        >
+          {categories.data[0].id > -1 ? (
             <>
               <SubNavLiMain
-                data={data}
+                data={categories}
                 activeLink={activeLink}
                 onClickLink={onClickLink}
               />
-              {data.data.map((dataEl, index) =>
+              {categories.data.map((dataEl, index) =>
                 index <= 4 ? (
                   <SubNavLi
                     key={uuidv4()}
