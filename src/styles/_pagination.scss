@@ -6,22 +6,26 @@
 .pagination-nums {
   display: flex;
   gap: 2.4rem;
-}
-
-.pagination-nums-item {
-  width: 2.4rem;
-  height: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 0.1rem solid $main;
-  background: $main;
-  color: $white;
 
   span {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0.1rem solid $main;
+    background: $main;
+    color: $white;
     font-size: 1.8rem;
     pointer-events: none;
+  }
+}
+
+.pagination-arr-left,
+.pagination-arr-right {
+  &:not(:disabled) {
+    cursor: pointer;
   }
 }
 

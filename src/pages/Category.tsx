@@ -1,22 +1,47 @@
 // Modules
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useState, useEffect, useMemo } from "react";
 
 // Components
 import { useParams } from "react-router-dom";
 import Aside from "../components/aside/Aside";
 import NewsScroll from "../components/global/NewsScroll";
+import CustomNewsScroll from "../components/global/CustomNewsScroll";
 import ContentItem from "../components/main/ContentItem";
+import Pagination from "../components/global/Pagination";
 
 // Types
-import { RootState } from "../types/store.types";
 import Loader from "../components/global/Loader";
+import { INewPostsData } from "../types/posts.types";
+import { IurlParamAdder } from "../types/api.types";
+import { Api } from "../api/Api";
+import { url } from "../url";
 
 const Category = () => {
   let { category } = useParams();
-  const data = useSelector<RootState, RootState["newsScroll"]["data"]>(
-    (state) => state.newsScroll.data
+  const [data, setData] = useState<INewPostsData>();
+  const [activePage, setActivePage] = useState<number>(1);
+  const [params, setParams] = useState<IurlParamAdder[]>([
+    { name: "count", value: 11 },
+    { name: "page", value: 1 },
+    { name: "category", value: category ? category : "" },
+  ]);
+  const pageMemo = useMemo(
+    () => ({ activePage, setActivePage }),
+    [activePage, setActivePage]
   );
+  const api = new Api(url + "/pagination/posts", params);
+
+  useEffect(() => {
+    const newParams = params.slice();
+    newParams[1].value = activePage;
+    setParams(newParams);
+  }, [activePage]);
+
+  useEffect(() => {
+    api.get(data, setData);
+  }, [params]);
+
   return (
     <motion.main
       className="category"
@@ -27,30 +52,24 @@ const Category = () => {
       <div className="container">
         <div className="category-inner">
           <div className="category-left">
-            {data.length > 0 ? (
-              data[0].id > -1 ? (
-                <ContentItem
-                  id={data[0].id}
-                  img={
-                    data[0].featured_images[0]
-                      ? data[0].featured_images[0].path
-                      : ""
-                  }
-                  title={data[0].title}
-                  type={"big"}
-                />
-              ) : (
-                <Loader />
-              )
+            {data ? (
+              <ContentItem
+                id={data?.data?.data[0]?.id}
+                img={data?.data?.data[0]?.featured_images[0]?.path}
+                title={data?.data?.data[0]?.title}
+                type={"big"}
+              />
             ) : (
               <Loader />
             )}
-            <NewsScroll
-              title={false}
-              category={parseInt(category as string)}
-              count={11}
-              avoidFirst
-            />
+            {data ? (
+              <CustomNewsScroll
+                data={data}
+                pageMemo={pageMemo}
+                pagination={true}
+                avoidFirst
+              />
+            ) : null}
           </div>
           <div className="category-right">
             <Aside type="latest" />

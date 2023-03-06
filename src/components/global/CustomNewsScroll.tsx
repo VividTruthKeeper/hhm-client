@@ -1,5 +1,5 @@
 // Modules
-import { useMemo, useState } from "react";
+import { SetStateAction } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Components
@@ -8,57 +8,75 @@ import Loader from "./Loader";
 import Pagination from "./Pagination";
 
 // Types
-import { IPostsData } from "../../types/data.types";
+import { INewPostsData } from "../../types/posts.types";
+import { Dispatch } from "@reduxjs/toolkit";
 
 interface IProps {
-  data: IPostsData[];
+  data: INewPostsData;
   word?: string;
   pagination: boolean;
+  pageMemo: {
+    activePage: number;
+    setActivePage: any;
+  };
+  avoidFirst?: boolean;
 }
 
-const CustomNewsScroll = ({ data, word, pagination = false }: IProps) => {
-  const [activePage, setActivePage] = useState<number | string>(1);
-  const pageMemo = useMemo(
-    () => ({ activePage, setActivePage }),
-    [activePage, setActivePage]
-  );
+const CustomNewsScroll = ({
+  data,
+  word,
+  pagination = false,
+  pageMemo,
+  avoidFirst,
+}: IProps) => {
   return (
     <div className="news-scroll">
       <div className="news-scroll-wrapper">
         <div className="news-scroll-inner">
-          {data.length > 0 ? (
-            data[0].id > -1 ? (
-              data.map((dataEl) => {
+          {data?.data?.data?.length > 0 ? (
+            data.data.data.map((dataEl, index) => {
+              if (avoidFirst) {
+                if (index > 0) {
+                  return (
+                    <News
+                      key={uuidv4()}
+                      id={dataEl?.id}
+                      title={dataEl?.title}
+                      text={dataEl?.excerpt}
+                      date={dataEl?.published_at}
+                      categories={dataEl?.categories}
+                      img={dataEl?.featured_images[0]?.path}
+                      video={dataEl.video}
+                    />
+                  );
+                }
+              } else {
                 return (
                   <News
                     key={uuidv4()}
-                    id={dataEl.id}
-                    title={dataEl.title}
-                    text={dataEl.excerpt}
-                    date={dataEl.published_at}
-                    categories={dataEl.categories}
-                    img={
-                      dataEl.featured_images[0]
-                        ? dataEl.featured_images[0].path
-                        : ""
-                    }
+                    id={dataEl?.id}
+                    title={dataEl?.title}
+                    text={dataEl?.excerpt}
+                    date={dataEl?.published_at}
+                    categories={dataEl?.categories}
+                    img={dataEl?.featured_images[0]?.path}
                     video={dataEl.video}
                   />
                 );
-              })
-            ) : (
-              <Loader />
-            )
+              }
+            })
           ) : (
             <p className="scroll-empty">Нет новостей для "{word || ""}" </p>
           )}
         </div>
         {pagination ? (
-          <Pagination
-            pages={3}
-            activePage={pageMemo.activePage}
-            setActivePage={pageMemo.setActivePage}
-          />
+          data?.data?.data?.length > 0 ? (
+            <Pagination
+              pages={data?.data?.total}
+              activePage={pageMemo.activePage}
+              setActivePage={pageMemo.setActivePage}
+            />
+          ) : null
         ) : null}
       </div>
     </div>

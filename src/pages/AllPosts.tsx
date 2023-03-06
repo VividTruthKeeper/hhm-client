@@ -1,5 +1,5 @@
 // Modules
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
 // Api
@@ -12,11 +12,16 @@ import Loader from "../components/global/Loader";
 
 // Types
 import { IurlParamAdder } from "../types/api.types";
-import { IPostsData } from "../types/data.types";
 import SectionTitle from "../components/global/SectionTitle";
+import { INewPostsData } from "../types/posts.types";
 
 const AllPosts = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const [activePage, setActivePage] = useState<number>(1);
+  const pageMemo = useMemo(
+    () => ({ activePage, setActivePage }),
+    [activePage, setActivePage]
+  );
   const type = searchParams.get("type") || null;
 
   const [params, setParams] = useState<IurlParamAdder[]>(
@@ -46,12 +51,18 @@ const AllPosts = () => {
           },
         ]
   );
-  const api = new Api(url + "/posts", params);
+  const api = new Api(url + "/pagination/posts", params);
 
   const language = api.language;
 
   const [lastLanguage, setLastLanguage] = useState<typeof language>(language);
-  const [data, setData] = useState<IPostsData[]>();
+  const [data, setData] = useState<INewPostsData>();
+
+  useEffect(() => {
+    const newParams = params.slice();
+    newParams[1].value = activePage;
+    setParams(newParams);
+  }, [activePage]);
 
   useEffect(() => {
     api.get(data, setData);
@@ -70,7 +81,11 @@ const AllPosts = () => {
         <div className="all-inner">
           {type === "video" ? <SectionTitle title={"Видео"} /> : null}
           {data ? (
-            <CustomNewsScroll data={data} pagination={false} />
+            <CustomNewsScroll
+              data={data}
+              pagination={true}
+              pageMemo={pageMemo}
+            />
           ) : (
             <Loader />
           )}
