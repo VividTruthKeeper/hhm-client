@@ -45,13 +45,11 @@ const Aside = ({ type }: Props) => {
                 return (
                   <AsideNews
                     key={uuidv4()}
-                    title={el.title}
-                    date={el.published_at}
-                    category={el.categories[0] ? el.categories[0].name : ""}
-                    img={
-                      el.featured_images[0] ? el.featured_images[0].path : ""
-                    }
-                    id={el.id}
+                    title={el?.title}
+                    date={el?.published_at}
+                    category={el.categories[0]?.name}
+                    img={el?.featured_images[0]?.path}
+                    id={el?.id}
                   />
                 );
               })
@@ -63,11 +61,11 @@ const Aside = ({ type }: Props) => {
               return (
                 <AsideNews
                   key={uuidv4()}
-                  title={el.title}
-                  date={el.published_at}
-                  category={el.categories[0] ? el.categories[0].name : ""}
-                  img={el.featured_images[0] ? el.featured_images[0].path : ""}
-                  id={el.id}
+                  title={el?.title}
+                  date={el?.published_at}
+                  category={el?.categories[0]?.name}
+                  img={el?.featured_images[0]?.path}
+                  id={el?.id}
                 />
               );
             })

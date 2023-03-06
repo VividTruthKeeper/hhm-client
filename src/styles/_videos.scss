@@ -39,7 +39,16 @@
 
 // Media
 
+@media screen and (min-width: 1150px) {
+  .videos-item-video {
+    height: 20rem;
+  }
+}
+
 @media screen and (max-width: 1150px) {
+  .videos-item-video {
+    height: 34rem;
+  }
   .videos-items {
     grid-template-columns: 1fr 1fr;
   }
@@ -49,6 +58,9 @@
 }
 
 @media screen and (max-width: 780px) {
+  .videos-item-video {
+    height: 27rem;
+  }
   .videos-items {
     grid-template-columns: 1fr;
   }
