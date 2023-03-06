@@ -100,6 +100,7 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
                             ? dataEl.featured_images[0].path
                             : ""
                         }
+                        video={dataEl.video}
                       />
                     );
                   }
@@ -117,6 +118,7 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
                           ? dataEl.featured_images[0].path
                           : ""
                       }
+                      video={dataEl.video}
                     />
                   );
                 }

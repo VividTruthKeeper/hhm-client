@@ -10,9 +10,10 @@ import { IPostData } from "../../types/store.types";
 
 interface IProps {
   images: IPostData["data"]["data"]["featured_images"];
+  video: IPostData["data"]["data"]["video"];
 }
 
-const NewsArticleSlider = ({ images }: IProps) => {
+const NewsArticleSlider = ({ images, video }: IProps) => {
   let loop = images.length > 1;
   return (
     <div className="news-article-slider">
@@ -32,7 +33,7 @@ const NewsArticleSlider = ({ images }: IProps) => {
       >
         {images.map((img) => (
           <SwiperSlide key={uuidv4()}>
-            <NewsArticleImg img={img.path} />
+            <NewsArticleImg img={img.path} video={video} />
           </SwiperSlide>
         ))}
       </Swiper>

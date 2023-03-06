@@ -50,6 +50,7 @@ const Aside = ({ type }: Props) => {
                     category={el.categories[0]?.name}
                     img={el?.featured_images[0]?.path}
                     id={el?.id}
+                    video={el?.video}
                   />
                 );
               })
@@ -66,6 +67,7 @@ const Aside = ({ type }: Props) => {
                   category={el?.categories[0]?.name}
                   img={el?.featured_images[0]?.path}
                   id={el?.id}
+                  video={el?.video}
                 />
               );
             })
