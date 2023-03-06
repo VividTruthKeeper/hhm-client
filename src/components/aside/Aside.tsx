@@ -65,7 +65,7 @@ const Aside = ({ type }: Props) => {
                   key={uuidv4()}
                   title={el.title}
                   date={el.published_at}
-                  category={el.categories[0].name}
+                  category={el.categories[0] ? el.categories[0].name : ""}
                   img={el.featured_images[0] ? el.featured_images[0].path : ""}
                   id={el.id}
                 />
