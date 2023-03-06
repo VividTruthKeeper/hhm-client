@@ -23,76 +23,54 @@ const MainContent = () => {
   const data = useSelector<RootState, RootState["featured"]["data"]>(
     (state) => state.featured.data
   );
-  const api = new Api(url + "/posts", featuredParams);
+  const api = new Api(url + "/pagination/posts", featuredParams);
   const language = api.language;
   const [lastLanguage, setLastLanguage] = useState<typeof language>(language);
 
   const getData = () => {
     api.get(data, (data) => dispatch(setFeatured(data)));
   };
-
+  console.log(data);
   useEffect(() => {
-    if (data.length > 0) {
-      if (!(data[0].id > -1 && language === lastLanguage)) {
-        getData();
-        setLastLanguage(language);
-      }
+    if (!(data.status_code > 0 && language === lastLanguage)) {
+      getData();
+      setLastLanguage(language);
     }
   }, [language, lastLanguage]);
   return (
     <>
-      {data[0].id > -1 ? (
-        data.length >= 5 ? (
+      {data.status_code > 0 ? (
+        data.data.data.length >= 5 ? (
           <div className="main-content">
-            <ContentSlider data={data} />
+            <ContentSlider data={data.data.data} />
             <div className="main-content-top">
               <ContentItem
-                id={data[0].id}
+                id={data?.data?.data[0]?.id}
                 type="big"
-                img={
-                  data[0].featured_images[0]
-                    ? data[0].featured_images[0].path
-                    : ""
-                }
-                title={data[0].title}
+                img={data?.data?.data[0]?.featured_images[0]?.path}
+                title={data?.data?.data[0]?.title}
               />
               <ContentItem
-                id={data[1].id}
-                img={
-                  data[1].featured_images[0]
-                    ? data[1].featured_images[0].path
-                    : ""
-                }
-                title={data[1].title}
+                id={data?.data?.data[1]?.id}
+                img={data?.data?.data[1]?.featured_images[0]?.path}
+                title={data?.data?.data[1]?.title}
               />
             </div>
             <div className="main-content-bottom">
               <ContentItem
-                id={data[2].id}
-                img={
-                  data[2].featured_images[0]
-                    ? data[2].featured_images[0].path
-                    : ""
-                }
-                title={data[2].title}
+                id={data?.data?.data[2]?.id}
+                img={data?.data?.data[2]?.featured_images[0]?.path}
+                title={data?.data?.data[2]?.title}
               />
               <ContentItem
-                id={data[3].id}
-                img={
-                  data[3].featured_images[0]
-                    ? data[3].featured_images[0].path
-                    : ""
-                }
-                title={data[3].title}
+                id={data?.data?.data[3]?.id}
+                img={data?.data?.data[3]?.featured_images[0]?.path}
+                title={data?.data?.data[3]?.title}
               />
               <ContentItem
-                id={data[4].id}
-                img={
-                  data[4].featured_images[0]
-                    ? data[4].featured_images[0].path
-                    : ""
-                }
-                title={data[4].title}
+                id={data?.data?.data[4]?.id}
+                img={data?.data?.data[4]?.featured_images[0]?.path}
+                title={data?.data?.data[4]?.title}
               />
             </div>
           </div>

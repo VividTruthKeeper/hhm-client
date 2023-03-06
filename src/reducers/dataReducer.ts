@@ -16,59 +16,47 @@ import {
 
 // NewsScroll
 
-export const newsScrollInitialState = {
-  data: [
-    {
-      id: -1,
-      title: "",
-      slug: "",
-      excerpt: "",
-      published_at: "",
-      featured_images: [
+export const newScroll: INewsScroll = {
+  data: {
+    status_code: -1,
+    message: "",
+    data: {
+      current_page: -1,
+      data: [
         {
           id: -1,
-          disk_name: "",
-          file_name: "",
-          path: "",
-          extension: "",
-        },
-        {
-          id: -1,
-          disk_name: "",
-          file_name: "",
-          path: "",
-          extension: "",
-        },
-        {
-          id: -1,
-          disk_name: "",
-          file_name: "",
-          path: "",
-          extension: "",
+          title: "",
+          slug: "",
+          excerpt: "",
+          published_at: "",
+          summary: "",
+          has_summary: false,
+          categories: [],
+          video: null,
+          featured_images: [],
         },
       ],
-      content_html: "",
-      categories: [
-        {
-          id: -1,
-          name: "",
-        },
-      ],
-      video: null,
-      powerseo_title: "",
-      powerseo_description: "",
-      powerseo_keywords: "",
+      first_page_url: "",
+      from: -1,
+      last_page: -1,
+      last_page_url: "",
+      next_page_url: "",
+      path: "",
+      per_page: "-1",
+      prev_page_url: null,
+      to: -1,
+      total: -1,
     },
-  ],
+  },
 };
 
 export const newsScrollReducer = (
-  state: INewsScroll = newsScrollInitialState,
+  state: INewsScroll = newScroll,
   action: INewsScrollAction
 ) => {
   switch (action.type) {
     case "SET_NEWS_SCROLL": {
-      return { ...state, data: action.payload };
+      return { data: action.payload };
     }
     default: {
       return state;
@@ -185,12 +173,12 @@ export const featuredInitialState = {
 };
 
 export const featuredReducer = (
-  state: IFeaturedData = featuredInitialState,
+  state: IFeaturedData = newScroll,
   action: IFeaturedDataAction
 ) => {
   switch (action.type) {
     case "SET_FEATURED": {
-      return { ...state, data: action.payload };
+      return { data: action.payload };
     }
     default: {
       return state;
@@ -199,7 +187,7 @@ export const featuredReducer = (
 };
 
 export const searchDataReducer = (
-  state: ISearchResult = newsScrollInitialState,
+  state: ISearchResult = newScroll,
   action: ISearchResultAction
 ) => {
   switch (action.type) {
@@ -213,7 +201,7 @@ export const searchDataReducer = (
 };
 
 export const videoReducer = (
-  state: IVideoData = newsScrollInitialState,
+  state: IVideoData = newScroll,
   action: IVideoDataAction
 ) => {
   switch (action.type) {

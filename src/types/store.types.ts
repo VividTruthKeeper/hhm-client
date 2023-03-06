@@ -3,6 +3,7 @@ import { allReducers } from "../store/functionality";
 
 // Types
 import { ICategoriesData, IPostsData } from "./data.types";
+import { INewPostsData } from "./posts.types";
 
 // NavLink
 export interface ActiveLinkType {
@@ -26,7 +27,7 @@ export interface ILanguageAction {
 // NewsScroll
 
 export interface INewsScroll {
-  data: IPostsData[];
+  data: INewPostsData;
 }
 export interface INewsScrollAction {
   type: "SET_NEWS_SCROLL";
@@ -46,7 +47,7 @@ export interface IPostDataAction {
   payload: IPostData["data"];
 }
 export interface IVideoData {
-  data: IPostsData[];
+  data: INewPostsData;
 }
 
 export interface IVideoDataAction {
@@ -54,7 +55,7 @@ export interface IVideoDataAction {
   payload: INewsScroll["data"];
 }
 export interface IFeaturedData {
-  data: IPostsData[];
+  data: INewPostsData;
 }
 
 export interface IFeaturedDataAction {
@@ -73,7 +74,7 @@ export interface ISearchDataAction {
 }
 
 export interface ISearchResult {
-  data: IPostsData[];
+  data: INewPostsData;
 }
 export interface ISearchResultAction {
   type: "SET_SEARCH_DATA";

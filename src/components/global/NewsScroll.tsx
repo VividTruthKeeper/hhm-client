@@ -20,6 +20,7 @@ import { RootState } from "../../types/store.types";
 
 // Actions
 import { setNewsScroll } from "../../actions/setData";
+import { INewPostsData } from "../../types/posts.types";
 
 interface Props {
   title: boolean;
@@ -33,7 +34,7 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
   category ? params.push({ name: "category", value: category }) : null;
   count ? (params[0].value = count) : null;
 
-  const api = new Api(url + "/posts", params);
+  const api = new Api(url + "/pagination/posts", params);
   const language = api.language;
   const [lastLanguage, setLastLanguage] = useState<string>(language);
 
@@ -44,27 +45,25 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    api.get(rawData, (data: IPostsData[]) => dispatch(setNewsScroll(data)));
+    api.get(rawData, (data: INewPostsData) => dispatch(setNewsScroll(data)));
     setLastLanguage(language);
   }, [category]);
 
   useEffect(() => {
-    if (rawData.length > 0) {
-      if (
-        !((rawData as IPostsData[])[0].id > -1 && lastLanguage === language)
-      ) {
-        api.get(rawData, (rawData: IPostsData[]) =>
-          dispatch(setNewsScroll(rawData))
-        );
+    if (rawData.status_code > 0) {
+      if (!(lastLanguage === language)) {
+        api.get(rawData, (rawData) => dispatch(setNewsScroll(rawData)));
         setLastLanguage(language);
       }
     }
   }, [language, lastLanguage]);
 
-  const [filteredData, setFilteredData] = useState<IPostsData[]>(rawData);
+  const [filteredData, setFilteredData] = useState<
+    INewPostsData["data"]["data"]
+  >(rawData.data.data);
 
   useEffect(() => {
-    const filtered = rawData.filter((el, index) => {
+    const filtered = rawData.data.data.filter((el, index) => {
       if (index >= 0) {
         return el;
       }
@@ -83,46 +82,40 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
         ) : null}
         <div className="news-scroll-inner">
           {filteredData.length > 0 ? (
-            (filteredData as IPostsData[])[0].id > -1 ? (
-              (filteredData as IPostsData[]).map((dataEl, index) => {
-                if (avoidFirst) {
-                  if (index > 0) {
+            (filteredData as INewPostsData["data"]["data"])[0].id > -1 ? (
+              (filteredData as INewPostsData["data"]["data"]).map(
+                (dataEl, index) => {
+                  if (avoidFirst) {
+                    if (index > 0) {
+                      return (
+                        <News
+                          key={uuidv4()}
+                          id={dataEl?.id}
+                          title={dataEl?.title}
+                          text={dataEl?.excerpt}
+                          date={dataEl?.published_at}
+                          categories={dataEl?.categories}
+                          img={dataEl?.featured_images[0]?.path}
+                          video={dataEl?.video}
+                        />
+                      );
+                    }
+                  } else {
                     return (
                       <News
                         key={uuidv4()}
-                        id={dataEl.id}
-                        title={dataEl.title}
-                        text={dataEl.excerpt}
-                        date={dataEl.published_at}
-                        categories={dataEl.categories}
-                        img={
-                          dataEl.featured_images[0]
-                            ? dataEl.featured_images[0].path
-                            : ""
-                        }
-                        video={dataEl.video}
+                        id={dataEl?.id}
+                        title={dataEl?.title}
+                        text={dataEl?.excerpt}
+                        date={dataEl?.published_at}
+                        categories={dataEl?.categories}
+                        img={dataEl?.featured_images[0]?.path}
+                        video={dataEl?.video}
                       />
                     );
                   }
-                } else {
-                  return (
-                    <News
-                      key={uuidv4()}
-                      id={dataEl.id}
-                      title={dataEl.title}
-                      text={dataEl.excerpt}
-                      date={dataEl.published_at}
-                      categories={dataEl.categories}
-                      img={
-                        dataEl.featured_images[0]
-                          ? dataEl.featured_images[0].path
-                          : ""
-                      }
-                      video={dataEl.video}
-                    />
-                  );
                 }
-              })
+              )
             ) : (
               <Loader />
             )
