@@ -42,6 +42,7 @@ const CustomNewsScroll = ({ data, word, pagination = false }: IProps) => {
                         ? dataEl.featured_images[0].path
                         : ""
                     }
+                    video={dataEl.video}
                   />
                 );
               })
