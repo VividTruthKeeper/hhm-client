@@ -30,7 +30,6 @@ const MainContent = () => {
   const getData = () => {
     api.get(data, (data) => dispatch(setFeatured(data)));
   };
-  console.log(data);
   useEffect(() => {
     if (!(data.status_code > 0 && language === lastLanguage)) {
       getData();
