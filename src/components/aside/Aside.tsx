@@ -45,7 +45,7 @@ const Aside = ({ type }: Props) => {
                 }`
               : `${
                   language === 'EN'
-                    ? 'Most readed'
+                    ? 'Most read'
                     : language === 'RU'
                     ? 'Самое читаемое'
                     : 'Köp okalýar'
