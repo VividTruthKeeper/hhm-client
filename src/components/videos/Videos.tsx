@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { v4 as uuiv4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { dateParse } from '../../helpers/dateParser';
+
 // Components
 import SectionTitle from '../global/SectionTitle';
 import VideosItem from './VideosItem';
@@ -39,7 +41,7 @@ const Videos = () => {
           givenClass="videos"
           title={language === 'EN' ? 'Videos' : language === 'RU' ? 'Видео' : 'Videolar'}
           linkData={{
-            link: '/all',
+            link: '/all?type=video',
             title: `${
               language === 'EN' ? 'View all' : language === 'RU' ? 'Посмотреть все' : 'Doly gör'
             }`,
@@ -58,7 +60,7 @@ const Videos = () => {
                         ? videosDataItem.featured_images[0].path
                         : ''
                     }
-                    date={videosDataItem.published_at}
+                    date={dateParse(videosDataItem.published_at)}
                     excerpt={videosDataItem.excerpt}
                   />
                 );
