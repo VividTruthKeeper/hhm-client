@@ -9,6 +9,7 @@ interface IProps {
 }
 
 const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
+  console.log(pages, activePage + 1);
   const handleOnClick = (page: number) => {
     setActivePage(page);
   };
@@ -26,7 +27,7 @@ const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
       </div>
       <button
         type="button"
-        disabled={activePage + 1 > pages}
+        disabled={activePage + 1 >= pages}
         onClick={() => handleOnClick(activePage + 1)}
       >
         <Arr className="pagination-arr pagination-arr-right" />
