@@ -23,7 +23,7 @@ const AsideNews = ({ title, date, img, category, id, video }: Props) => {
     <Link to={`/news/${id}`} className="aside-news">
       <div className="aside-news-wrapper">
         <div className="aside-news-image">
-          {video && video.length > 0 ? (
+          {video && video.length > 53 ? (
             <ReactPlayer
               url={video}
               controls
