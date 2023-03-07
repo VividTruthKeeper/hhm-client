@@ -1,19 +1,19 @@
 // Modules
-import { v4 as uuidv4 } from "uuid";
-import { useState, useEffect } from "react";
-import { url } from "../../url";
-import { Api } from "../../api/Api";
-import { asideParams } from "../../api/params";
+import { v4 as uuidv4 } from 'uuid';
+import { useState, useEffect } from 'react';
+import { url } from '../../url';
+import { Api } from '../../api/Api';
+import { asideParams } from '../../api/params';
 
 // Components
-import SectionTitle from "../global/SectionTitle";
-import AsideNews from "./AsideNews";
-import Calendar from "./Calendar";
-import { IPostsData } from "../../types/data.types";
-import Loader from "../global/Loader";
+import SectionTitle from '../global/SectionTitle';
+import AsideNews from './AsideNews';
+import Calendar from './Calendar';
+import { IPostsData } from '../../types/data.types';
+import Loader from '../global/Loader';
 
 interface Props {
-  type: "latest" | "popular";
+  type: 'latest' | 'popular';
 }
 
 interface IData {
@@ -21,10 +21,8 @@ interface IData {
 }
 
 const Aside = ({ type }: Props) => {
-  const api = new Api(
-    url + `${type === "popular" ? "/popular" : ""}/posts`,
-    asideParams
-  );
+  const api = new Api(url + `${type === 'popular' ? '/popular' : ''}/posts`, asideParams);
+  const language = api.language;
 
   const [data, setData] = useState<IData>();
 
@@ -36,10 +34,26 @@ const Aside = ({ type }: Props) => {
     <div className="aside">
       <div className="aside-wrapper">
         <SectionTitle
-          title={type === "latest" ? "Последние новости" : "Самое читаемое"}
+          title={
+            type === 'latest'
+              ? `${
+                  language === 'EN'
+                    ? 'Latest news'
+                    : language === 'RU'
+                    ? 'Последние новости'
+                    : 'Soňky habarlar'
+                }`
+              : `${
+                  language === 'EN'
+                    ? 'Most read'
+                    : language === 'RU'
+                    ? 'Самое читаемое'
+                    : 'Köp okalýar'
+                }`
+          }
         />
         <div className="aside-inner">
-          {type === "popular" ? (
+          {type === 'popular' ? (
             data ? (
               (data as any).data.map((el: any) => {
                 return (
