@@ -1,6 +1,3 @@
-// Modules
-import { motion } from "framer-motion";
-
 // Components
 import Aside from "../components/aside/Aside";
 import NewsScroll from "../components/global/NewsScroll";
@@ -9,12 +6,7 @@ import MainContent from "../components/main/MainContent";
 
 const Main = () => {
   return (
-    <motion.main
-      className="main"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, transition: { duration: 0.15 } }}
-      exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.15 } }}
-    >
+    <main className="main">
       <h1 style={{ display: "none" }}>Туркменистан новостной портал</h1>
       <div className="news-section">
         <div className="container">
@@ -28,7 +20,7 @@ const Main = () => {
           </div>
         </div>
       </div>
-    </motion.main>
+    </main>
   );
 };
 

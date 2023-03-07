@@ -3,16 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { motion } from "framer-motion";
 
 // Components
 import Aside from "../components/aside/Aside";
 import NewsArticleSlider from "../components/news/NewsArticleSlider";
 import Loader from "../components/global/Loader";
-// import VideosItem from "../components/videos/VideosItem";
 
 // Icons
-import { ReactComponent as Share } from "../assets/icons/share.svg";
 import { ReactComponent as View } from "../assets/icons/eye.svg";
 
 // Types
@@ -67,12 +64,7 @@ const NewsArticle = () => {
   }, [data]);
 
   return (
-    <motion.div
-      className="news-article"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, transition: { duration: 0.15 } }}
-      exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.15 } }}
-    >
+    <div className="news-article">
       <div className="container">
         <div className="news-article-inner">
           {data.data.id > -1 ? (
@@ -103,18 +95,6 @@ const NewsArticle = () => {
                 <h2 className="news-article-title">{data.data.title}</h2>
               </div>
               <div className="news-article-slider-wrapper">
-                {/* {data.data.video ? (
-                  <VideosItem
-                    url={data.data.video}
-                    placeholder={
-                      data.data.featured_images[0]
-                        ? data.data.featured_images[0].path
-                        : ""
-                    }
-                  />
-                ) : (
-                  <NewsArticleSlider images={data.data.featured_images} />
-                )} */}
                 <NewsArticleSlider
                   images={data.data.featured_images}
                   video={data.data.video}
@@ -124,9 +104,6 @@ const NewsArticle = () => {
                 className="news-article-text"
                 dangerouslySetInnerHTML={{ __html: data.data.content_html }}
               ></p>
-              {/* <button className="share-btn">
-                <Share /> <span>Поделиться</span>
-              </button> */}
             </div>
           ) : (
             <Loader />
@@ -134,7 +111,7 @@ const NewsArticle = () => {
           <Aside type="latest" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,11 +1,9 @@
 // Modules
 import { useEffect, useState } from "react";
-// import { LazyLoadComponent } from "react-lazy-load-image-component";
 import { useSelector, useDispatch } from "react-redux";
 
 // Components
 import ContentItem from "./ContentItem";
-import SectionTitle from "../global/SectionTitle";
 import ContentSlider from "./ContentSlider";
 import Loader from "../global/Loader";
 
@@ -17,6 +15,7 @@ import { url } from "../../url";
 import { Api } from "../../api/Api";
 import { featuredParams } from "../../api/params";
 import { setFeatured } from "../../actions/setData";
+import { INewPostsData } from "../../types/posts.types";
 
 const MainContent = () => {
   const dispatch = useDispatch();
@@ -27,17 +26,15 @@ const MainContent = () => {
   const language = api.language;
   const [lastLanguage, setLastLanguage] = useState<typeof language>(language);
 
-  const getData = () => {
-    api.get(data, (data) => dispatch(setFeatured(data)));
-  };
   useEffect(() => {
     if (!(data.status_code > 0 && language === lastLanguage)) {
-      getData();
+      api.get(data, (data: INewPostsData) => dispatch(setFeatured(data)));
       setLastLanguage(language);
     }
   }, [language, lastLanguage]);
+
   return (
-    <>
+    <div className="main-content-wrapper">
       {data.status_code > 0 ? (
         data.data.data.length >= 5 ? (
           <div className="main-content">
@@ -79,7 +76,7 @@ const MainContent = () => {
       ) : (
         <Loader />
       )}
-    </>
+    </div>
   );
 };
 

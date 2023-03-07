@@ -1,6 +1,5 @@
 // Modules
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./hooks/ScrollToTop";
 
 // Styles
@@ -18,6 +17,7 @@ import Category from "./pages/Category";
 import SearchResult from "./pages/SearchResult";
 import AllPosts from "./pages/AllPosts";
 import NotFound404 from "./pages/NotFound404";
+
 // Components
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -47,16 +47,14 @@ const App = () => {
     <ScrollToTop>
       <div className="App">
         <Header />
-        <AnimatePresence mode="wait" initial={false}>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Main />} />
-            <Route path="/category/:category" element={<Category />} />
-            <Route path="/news/:id" element={<NewsArticle />} />
-            <Route path="/search/:word" element={<SearchResult />} />
-            <Route path="/all" element={<AllPosts />} />
-            <Route path="*" element={<NotFound404 />} />
-          </Routes>
-        </AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Main />} />
+          <Route path="/category/:category" element={<Category />} />
+          <Route path="/news/:id" element={<NewsArticle />} />
+          <Route path="/search/:word" element={<SearchResult />} />
+          <Route path="/all" element={<AllPosts />} />
+          <Route path="*" element={<NotFound404 />} />
+        </Routes>
         <Footer />
       </div>
     </ScrollToTop>
