@@ -1,14 +1,11 @@
 // Modules
-import { motion } from "framer-motion";
 import { useState, useEffect, useMemo } from "react";
 
 // Components
 import { useParams } from "react-router-dom";
 import Aside from "../components/aside/Aside";
-import NewsScroll from "../components/global/NewsScroll";
 import CustomNewsScroll from "../components/global/CustomNewsScroll";
 import ContentItem from "../components/main/ContentItem";
-import Pagination from "../components/global/Pagination";
 
 // Types
 import Loader from "../components/global/Loader";
@@ -43,12 +40,7 @@ const Category = () => {
   }, [params]);
 
   return (
-    <motion.main
-      className="category"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, transition: { duration: 0.15 } }}
-      exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.15 } }}
-    >
+    <main className="category">
       <div className="container">
         <div className="category-inner">
           <div className="category-left">
@@ -76,7 +68,7 @@ const Category = () => {
           </div>
         </div>
       </div>
-    </motion.main>
+    </main>
   );
 };
 

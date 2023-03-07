@@ -35,12 +35,10 @@ const ContentSlider = ({ data }: IProps) => {
           return (
             <SwiperSlide key={uuidv4()}>
               <ContentItem
-                id={dataEl.id}
+                id={dataEl?.id}
                 type="big"
-                img={
-                  dataEl.featured_images ? dataEl.featured_images[0].path : ""
-                }
-                title={dataEl.title}
+                img={dataEl?.featured_images[0]?.path}
+                title={dataEl?.title}
               />
             </SwiperSlide>
           );
