@@ -61,7 +61,7 @@ const SubNavLiMain = ({ activeLink, data, onClickLink }: IProps) => {
           </defs>
         </motion.svg>
         <p className={activeLink === 0 ? 'active' : ''}>
-          {language === 'EN' ? 'Categoryes' : language === 'RU' ? 'Категории' : 'Kategoriýalar'}
+          {language === 'EN' ? 'Categories' : language === 'RU' ? 'Категории' : 'Kategoriýalar'}
         </p>
         <p>|</p>
         <p>
