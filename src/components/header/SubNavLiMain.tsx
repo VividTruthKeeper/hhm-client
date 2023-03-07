@@ -1,16 +1,17 @@
 // Modules
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Api } from '../../api/Api';
 
 // Animations
-import { catMotion, linkMotion } from "../../animations/subNav.animations";
+import { catMotion, linkMotion } from '../../animations/subNav.animations';
 
 // Types
-import { ICategoriesData } from "../../types/data.types";
+import { ICategoriesData } from '../../types/data.types';
 
 // Components
-import NavDropdown from "./NavDropdown";
+import NavDropdown from './NavDropdown';
 
 interface IProps {
   activeLink: number;
@@ -19,14 +20,16 @@ interface IProps {
 }
 
 const SubNavLiMain = ({ activeLink, data, onClickLink }: IProps) => {
+  // Language
+  const language = new Api('').language;
+
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   return (
     <motion.li
       className="sub-nav-li-main"
-      initial={"active"}
+      initial={'active'}
       variants={linkMotion}
-      onClick={() => setDropdownOpen(!dropdownOpen)}
-    >
+      onClick={() => setDropdownOpen(!dropdownOpen)}>
       <motion.div className="inner">
         <motion.svg
           width="24"
@@ -35,9 +38,8 @@ const SubNavLiMain = ({ activeLink, data, onClickLink }: IProps) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           variants={catMotion}
-          initial={"menuRest"}
-          animate={dropdownOpen ? "menuActive" : "menuRest"}
-        >
+          initial={'menuRest'}
+          animate={dropdownOpen ? 'menuActive' : 'menuRest'}>
           <g clipPath="url(#clip0_343_1783)">
             <path
               d="M20.05 11.0001H3.95C3.42533 11.0001 3 11.4255 3 11.9501V12.0501C3 12.5748 3.42533 13.0001 3.95 13.0001H20.05C20.5747 13.0001 21 12.5748 21 12.0501V11.9501C21 11.4255 20.5747 11.0001 20.05 11.0001Z"
@@ -58,23 +60,23 @@ const SubNavLiMain = ({ activeLink, data, onClickLink }: IProps) => {
             </clipPath>
           </defs>
         </motion.svg>
-        <p className={activeLink === 0 ? "active" : ""}>Категории</p>
+        <p className={activeLink === 0 ? 'active' : ''}>
+          {language === 'EN' ? 'Categoryes' : language === 'RU' ? 'Категории' : 'Kategoriýalar'}
+        </p>
         <p>|</p>
         <p>
           <motion.span
             variants={catMotion}
-            initial={"rest"}
-            animate={activeLink === 0 ? "active" : "rest"}
-          >
-            Главная
+            initial={'rest'}
+            animate={activeLink === 0 ? 'active' : 'rest'}>
+            {language === 'EN' ? 'Home' : language === 'RU' ? 'Главная' : 'Esasy sahypa'}
           </motion.span>
           {data.data.map((el) => (
             <motion.span
               key={uuidv4()}
               variants={catMotion}
-              initial={"rest"}
-              animate={activeLink === el.id ? "active" : "rest"}
-            >
+              initial={'rest'}
+              animate={activeLink === el.id ? 'active' : 'rest'}>
               {el.name}
             </motion.span>
           ))}
