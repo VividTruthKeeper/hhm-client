@@ -1,26 +1,26 @@
 // Modules
-import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Components
-import News from "../news/News";
-import SectionTitle from "./SectionTitle";
-import Loader from "./Loader";
-import Pagination from "./Pagination";
+import News from '../news/News';
+import SectionTitle from './SectionTitle';
+import Loader from './Loader';
+import Pagination from './Pagination';
 
 // Api
-import { url } from "../../url";
-import { Api } from "../../api/Api";
-import { newsScrollParams } from "../../api/params";
+import { url } from '../../url';
+import { Api } from '../../api/Api';
+import { newsScrollParams } from '../../api/params';
 
 // Types
-import { IPostsData } from "../../types/data.types";
-import { RootState } from "../../types/store.types";
+import { IPostsData } from '../../types/data.types';
+import { RootState } from '../../types/store.types';
 
 // Actions
-import { setNewsScroll } from "../../actions/setData";
-import { INewPostsData } from "../../types/posts.types";
+import { setNewsScroll } from '../../actions/setData';
+import { INewPostsData } from '../../types/posts.types';
 
 interface Props {
   title: boolean;
@@ -31,16 +31,16 @@ interface Props {
 
 const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
   const params = newsScrollParams.slice();
-  category ? params.push({ name: "category", value: category }) : null;
+  category ? params.push({ name: 'category', value: category }) : null;
   count ? (params[0].value = count) : null;
 
-  const api = new Api(url + "/pagination/posts", params);
+  const api = new Api(url + '/pagination/posts', params);
   const language = api.language;
   const [lastLanguage, setLastLanguage] = useState<string>(language);
 
   // redux
-  const rawData = useSelector<RootState, RootState["newsScroll"]["data"]>(
-    (state) => state.newsScroll.data
+  const rawData = useSelector<RootState, RootState['newsScroll']['data']>(
+    (state) => state.newsScroll.data,
   );
   const dispatch = useDispatch();
 
@@ -58,9 +58,9 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
     }
   }, [language, lastLanguage]);
 
-  const [filteredData, setFilteredData] = useState<
-    INewPostsData["data"]["data"]
-  >(rawData.data.data);
+  const [filteredData, setFilteredData] = useState<INewPostsData['data']['data']>(
+    rawData.data.data,
+  );
 
   useEffect(() => {
     const filtered = rawData.data.data.filter((el, index) => {
@@ -76,31 +76,23 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
       <div className="news-scroll-wrapper">
         {title === true ? (
           <SectionTitle
-            title="Лента новостей"
-            linkData={{ link: "/all", title: "Посмотреть все" }}
+            title={
+              language === 'EN' ? 'Newsline' : language === 'RU' ? 'Лента новостей' : 'Habarlar'
+            }
+            linkData={{
+              link: '/all',
+              title: `${
+                language === 'EN' ? 'View all' : language === 'RU' ? 'Посмотреть все' : 'Doly gör'
+              }`,
+            }}
           />
         ) : null}
         <div className="news-scroll-inner">
           {filteredData.length > 0 ? (
-            (filteredData as INewPostsData["data"]["data"])[0].id > -1 ? (
-              (filteredData as INewPostsData["data"]["data"]).map(
-                (dataEl, index) => {
-                  if (avoidFirst) {
-                    if (index > 0) {
-                      return (
-                        <News
-                          key={uuidv4()}
-                          id={dataEl?.id}
-                          title={dataEl?.title}
-                          text={dataEl?.excerpt}
-                          date={dataEl?.published_at}
-                          categories={dataEl?.categories}
-                          img={dataEl?.featured_images[0]?.path}
-                          video={dataEl?.video}
-                        />
-                      );
-                    }
-                  } else {
+            (filteredData as INewPostsData['data']['data'])[0].id > -1 ? (
+              (filteredData as INewPostsData['data']['data']).map((dataEl, index) => {
+                if (avoidFirst) {
+                  if (index > 0) {
                     return (
                       <News
                         key={uuidv4()}
@@ -114,8 +106,21 @@ const NewsScroll = ({ title, category, count, avoidFirst }: Props) => {
                       />
                     );
                   }
+                } else {
+                  return (
+                    <News
+                      key={uuidv4()}
+                      id={dataEl?.id}
+                      title={dataEl?.title}
+                      text={dataEl?.excerpt}
+                      date={dataEl?.published_at}
+                      categories={dataEl?.categories}
+                      img={dataEl?.featured_images[0]?.path}
+                      video={dataEl?.video}
+                    />
+                  );
                 }
-              )
+              })
             ) : (
               <Loader />
             )
