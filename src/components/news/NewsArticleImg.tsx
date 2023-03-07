@@ -11,7 +11,7 @@ interface IProps {
 const NewsArticleImg = ({ img, video }: IProps) => {
   return (
     <div className={"news-article-image"}>
-      {video && video.length > 0 ? (
+      {video && video.length > 53 ? (
         <ReactPlayer url={video} controls width="100%" height="100%" />
       ) : (
         <LazyLoadImage
