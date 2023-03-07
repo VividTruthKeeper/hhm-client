@@ -44,7 +44,7 @@ const CustomNewsScroll = ({
                       date={dataEl?.published_at}
                       categories={dataEl?.categories}
                       img={dataEl?.featured_images[0]?.path}
-                      video={dataEl.video}
+                      video={{ type: dataEl?.type, url: dataEl?.video }}
                     />
                   );
                 }
@@ -58,7 +58,7 @@ const CustomNewsScroll = ({
                     date={dataEl?.published_at}
                     categories={dataEl?.categories}
                     img={dataEl?.featured_images[0]?.path}
-                    video={dataEl.video}
+                    video={{ type: dataEl?.type, url: dataEl?.video }}
                   />
                 );
               }
