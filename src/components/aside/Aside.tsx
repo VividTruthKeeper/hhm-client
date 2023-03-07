@@ -12,6 +12,8 @@ import Calendar from './Calendar';
 import { IPostsData } from '../../types/data.types';
 import Loader from '../global/Loader';
 
+import { dateParse } from '../../helpers/dateParser';
+
 interface Props {
   type: 'latest' | 'popular';
 }
@@ -60,7 +62,7 @@ const Aside = ({ type }: Props) => {
                   <AsideNews
                     key={uuidv4()}
                     title={el?.title}
-                    date={el?.published_at}
+                    date={dateParse(el?.published_at)}
                     category={el.categories[0]?.name}
                     img={el?.featured_images[0]?.path}
                     id={el?.id}

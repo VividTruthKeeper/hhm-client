@@ -1,13 +1,14 @@
 // Modules
-import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import ReactPlayer from "react-player";
+import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import ReactPlayer from 'react-player';
+import { dateParse } from '../../helpers/dateParser';
 // Images
 // import { ReactComponent as ArrRight } from "../../assets/icons/arrow-right.svg";
-import placeholder from "../../assets/images/placeholder.webp";
+import placeholder from '../../assets/images/placeholder.webp';
 // Components
-import NewsCategory from "../global/NewsCategory";
-import NewsDate from "../global/NewsDate";
+import NewsCategory from '../global/NewsCategory';
+import NewsDate from '../global/NewsDate';
 
 interface Props {
   title: string;
@@ -24,13 +25,7 @@ const AsideNews = ({ title, date, img, category, id, video }: Props) => {
       <div className="aside-news-wrapper">
         <div className="aside-news-image">
           {video && video.length > 53 ? (
-            <ReactPlayer
-              url={video}
-              controls
-              light={img}
-              width="100%"
-              height="100%"
-            />
+            <ReactPlayer url={video} controls light={img} width="100%" height="100%" />
           ) : (
             <LazyLoadImage
               src={img}
