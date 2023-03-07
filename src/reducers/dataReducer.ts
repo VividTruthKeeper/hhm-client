@@ -18,32 +18,35 @@ import {
 
 export const newScroll: INewsScroll = {
   data: {
-    status_code: -1,
-    message: "",
-    data: {
+    data: [
+      {
+        id: -1,
+        title: "",
+        slug: "",
+        excerpt: "",
+        published_at: "",
+        categories: [],
+        video: "",
+        featured_images: [],
+        powerseo_description: "",
+        content_html: "",
+        powerseo_keywords: "",
+        powerseo_title: "",
+        type: "",
+      },
+    ],
+    links: {
+      first: "",
+      last: "",
+      prev: null,
+      next: "",
+    },
+    meta: {
       current_page: -1,
-      data: [
-        {
-          id: -1,
-          title: "",
-          slug: "",
-          excerpt: "",
-          published_at: "",
-          summary: "",
-          has_summary: false,
-          categories: [],
-          video: null,
-          featured_images: [],
-        },
-      ],
-      first_page_url: "",
       from: -1,
       last_page: -1,
-      last_page_url: "",
-      next_page_url: "",
       path: "",
-      per_page: "-1",
-      prev_page_url: null,
+      per_page: "",
       to: -1,
       total: -1,
     },

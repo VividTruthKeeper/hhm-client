@@ -39,7 +39,7 @@ const SearchResult = () => {
       value: 1,
     },
   ]);
-  const api = new Api(url + "/pagination/posts", params);
+  const api = new Api(url + "/pagination/new/posts", params);
   const language = api.language;
   const [lastLanguage, setLastLanguage] = useState<typeof language>(language);
 
@@ -71,10 +71,16 @@ const SearchResult = () => {
         <div className="sresult-inner">
           <div className="sresult-title">
             <LoopBlack />
-            <h1>Результаты по поиску "{word}"</h1>
+            <h1>
+              {language === "EN"
+                ? `Results for "${word}"`
+                : language === "RU"
+                ? `Результаты по поиску "${word}"`
+                : `"${word}" gözleg boýunça netijeler`}
+            </h1>
           </div>
           <div className="sresult-content">
-            {data.status_code > 0 ? (
+            {data.data[0].id > -1 ? (
               <CustomNewsScroll
                 pagination={true}
                 data={data}
