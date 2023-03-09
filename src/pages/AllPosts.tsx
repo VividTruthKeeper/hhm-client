@@ -51,7 +51,7 @@ const AllPosts = () => {
           },
         ]
   );
-  const api = new Api(url + "/pagination/posts", params);
+  const api = new Api(url + "/pagination/new/posts", params);
 
   const language = api.language;
 

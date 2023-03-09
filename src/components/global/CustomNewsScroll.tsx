@@ -4,12 +4,10 @@ import { v4 as uuidv4 } from "uuid";
 
 // Components
 import News from "../news/News";
-import Loader from "./Loader";
 import Pagination from "./Pagination";
 
 // Types
 import { INewPostsData } from "../../types/posts.types";
-import { Dispatch } from "@reduxjs/toolkit";
 
 interface IProps {
   data: INewPostsData;
@@ -33,8 +31,8 @@ const CustomNewsScroll = ({
     <div className="news-scroll">
       <div className="news-scroll-wrapper">
         <div className="news-scroll-inner">
-          {data?.data?.data?.length > 0 ? (
-            data.data.data.map((dataEl, index) => {
+          {data?.data[0].id > -1 ? (
+            data.data.map((dataEl, index) => {
               if (avoidFirst) {
                 if (index > 0) {
                   return (
@@ -46,7 +44,7 @@ const CustomNewsScroll = ({
                       date={dataEl?.published_at}
                       categories={dataEl?.categories}
                       img={dataEl?.featured_images[0]?.path}
-                      video={dataEl.video}
+                      video={{ type: dataEl?.type, url: dataEl?.video }}
                     />
                   );
                 }
@@ -60,7 +58,7 @@ const CustomNewsScroll = ({
                     date={dataEl?.published_at}
                     categories={dataEl?.categories}
                     img={dataEl?.featured_images[0]?.path}
-                    video={dataEl.video}
+                    video={{ type: dataEl?.type, url: dataEl?.video }}
                   />
                 );
               }
@@ -70,9 +68,9 @@ const CustomNewsScroll = ({
           )}
         </div>
         {pagination ? (
-          data?.data?.data?.length > 0 ? (
+          data?.data[0].id > -1 ? (
             <Pagination
-              pages={data?.data?.total}
+              pages={data?.meta.total}
               activePage={pageMemo.activePage}
               setActivePage={pageMemo.setActivePage}
             />
