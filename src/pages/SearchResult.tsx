@@ -80,15 +80,26 @@ const SearchResult = () => {
             </h1>
           </div>
           <div className="sresult-content">
-            {data.data[0].id > -1 ? (
-              <CustomNewsScroll
-                pagination={true}
-                data={data}
-                word={word}
-                pageMemo={pageMemo}
-              />
+            {data.data.length > 0 ? (
+              data?.data[0]?.id > -1 ? (
+                <CustomNewsScroll
+                  pagination={true}
+                  data={data}
+                  word={word}
+                  pageMemo={pageMemo}
+                />
+              ) : (
+                <Loader />
+              )
             ) : (
-              <Loader />
+              <span className="empty">
+                {" "}
+                {language === "EN"
+                  ? `No results for "${word}"`
+                  : language === "RU"
+                  ? `Нет результаты по поиску "${word}"`
+                  : `"${word}" gözleg boýunça netije ýok`}
+              </span>
             )}
           </div>
         </div>
