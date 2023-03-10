@@ -1,23 +1,23 @@
 // Modules
-import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { v4 as uuidv4 } from "uuid";
-import ReactPlayer from "react-player";
+import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { v4 as uuidv4 } from 'uuid';
+import ReactPlayer from 'react-player';
 
 // Components
-import NewsCategory from "../global/NewsCategory";
-import NewsDate from "../global/NewsDate";
-import { IPostsData } from "../../types/data.types";
-import placeholder from "../../assets/images/placeholder.webp";
-import { dateParse } from "../../helpers/dateParser";
+import NewsCategory from '../global/NewsCategory';
+import NewsDate from '../global/NewsDate';
+import { IPostsData } from '../../types/data.types';
+import placeholder from '../../assets/images/placeholder.webp';
+import { dateParse } from '../../helpers/dateParser';
 
 interface Props {
-  id: IPostsData["id"];
-  title: IPostsData["title"];
-  text: IPostsData["content_html"];
-  categories: IPostsData["categories"];
-  date: IPostsData["published_at"];
-  img: IPostsData["featured_images"][0]["path"];
+  id: IPostsData['id'];
+  title: IPostsData['title'];
+  text: IPostsData['content_html'];
+  categories: IPostsData['categories'];
+  date: IPostsData['published_at'];
+  img: IPostsData['featured_images'][0]['path'];
   video: {
     type: string;
     url: string;
@@ -29,14 +29,8 @@ const News = ({ id, title, text, categories, date, img, video }: Props) => {
     <Link to={`/news/${id}`}>
       <div className="news-wrapper">
         <div className="news-image">
-          {video.type === "video" ? (
-            <ReactPlayer
-              url={video.url}
-              controls
-              light={img}
-              width="100%"
-              height="100%"
-            />
+          {video.type === 'video' ? (
+            <ReactPlayer url={video.url} controls light={img} width="100%" height="100%" />
           ) : (
             <LazyLoadImage
               src={img}
@@ -57,13 +51,10 @@ const News = ({ id, title, text, categories, date, img, video }: Props) => {
                 })}
               </div>
               <div className="news-status-right">
-                <NewsDate date={dateParse(date)} />
+                <NewsDate date={date} />
               </div>
             </div>
-            <div
-              className="news-text"
-              dangerouslySetInnerHTML={{ __html: text }}
-            ></div>
+            <div className="news-text" dangerouslySetInnerHTML={{ __html: text }}></div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 // Icons
-import { Dispatch, SetStateAction } from "react";
-import { ReactComponent as Arr } from "../../assets/icons/pagintaion-arr.svg";
+import { Dispatch, SetStateAction } from 'react';
+import { ReactComponent as Arr } from '../../assets/icons/pagintaion-arr.svg';
 
 interface IProps {
   pages: number;
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
-  console.log(pages, activePage + 1);
+  // console.log(pages, activePage + 1);
   const handleOnClick = (page: number) => {
     setActivePage(page);
   };
@@ -18,8 +18,7 @@ const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
       <button
         type="button"
         disabled={activePage - 1 < 1}
-        onClick={() => handleOnClick(activePage - 1)}
-      >
+        onClick={() => handleOnClick(activePage - 1)}>
         <Arr className="pagination-arr pagination-arr-left" />
       </button>
       <div className="pagination-nums">
@@ -28,8 +27,7 @@ const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
       <button
         type="button"
         disabled={activePage + 1 >= pages}
-        onClick={() => handleOnClick(activePage + 1)}
-      >
+        onClick={() => handleOnClick(activePage + 1)}>
         <Arr className="pagination-arr pagination-arr-right" />
       </button>
     </div>
