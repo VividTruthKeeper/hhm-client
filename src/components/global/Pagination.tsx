@@ -9,7 +9,6 @@ interface IProps {
 }
 
 const Pagination = ({ pages, activePage, setActivePage }: IProps) => {
-  // console.log(pages, activePage + 1);
   const handleOnClick = (page: number) => {
     setActivePage(page);
   };
