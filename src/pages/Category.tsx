@@ -27,7 +27,7 @@ const Category = () => {
     () => ({ activePage, setActivePage }),
     [activePage, setActivePage]
   );
-  const api = new Api(url + "/pagination/posts", params);
+  const api = new Api(url + "/pagination/new/posts", params);
 
   useEffect(() => {
     const newParams = params.slice();
@@ -46,9 +46,9 @@ const Category = () => {
           <div className="category-left">
             {data ? (
               <ContentItem
-                id={data?.data?.data[0]?.id}
-                img={data?.data?.data[0]?.featured_images[0]?.path}
-                title={data?.data?.data[0]?.title}
+                id={data?.data[0]?.id}
+                img={data?.data[0]?.featured_images[0]?.path}
+                title={data?.data[0]?.title}
                 type={"big"}
               />
             ) : (

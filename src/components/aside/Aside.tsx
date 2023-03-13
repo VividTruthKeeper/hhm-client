@@ -12,6 +12,8 @@ import Calendar from './Calendar';
 import { IPostsData } from '../../types/data.types';
 import Loader from '../global/Loader';
 
+import { dateParse } from '../../helpers/dateParser';
+
 interface Props {
   type: 'latest' | 'popular';
 }

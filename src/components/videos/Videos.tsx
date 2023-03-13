@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { v4 as uuiv4 } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
 
+import { dateParse } from "../../helpers/dateParser";
+
 // Components
 import SectionTitle from "../global/SectionTitle";
 import VideosItem from "./VideosItem";
@@ -23,13 +25,13 @@ const Videos = () => {
   const data = useSelector<RootState, RootState["video"]["data"]>(
     (state) => state.video.data
   );
-  const api = new Api(url + "/pagination/posts", videoParams);
+  const api = new Api(url + "/pagination/new/posts", videoParams);
   const language = api.language;
   const dispatch = useDispatch();
   const [lastLanguage, setLastLanguage] = useState<typeof language>(language);
 
   useEffect(() => {
-    if (!(lastLanguage === language && data.status_code > 0)) {
+    if (!(lastLanguage === language && data.data[0].id > -1)) {
       api.get(data, (data) => dispatch(setVideo(data)));
       setLastLanguage(language);
     }
@@ -47,7 +49,7 @@ const Videos = () => {
               : "Videolar"
           }
           linkData={{
-            link: "/all",
+            link: "/all?type=video",
             title: `${
               language === "EN"
                 ? "View all"
@@ -58,9 +60,9 @@ const Videos = () => {
           }}
         />
         <div className="videos-items">
-          {data.status_code > 0 ? (
-            data.data.data.map((videosDataItem, index) => {
-              if (index <= 4) {
+          {data.data[0].id > -1 ? (
+            data.data.map((videosDataItem, index) => {
+              if (index <= 3) {
                 return (
                   <VideosItem
                     key={uuiv4()}

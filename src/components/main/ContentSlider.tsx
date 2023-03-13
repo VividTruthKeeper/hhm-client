@@ -11,7 +11,7 @@ import { IFeaturedData } from "../../types/store.types";
 
 // Types
 interface IProps {
-  data: IFeaturedData["data"]["data"]["data"];
+  data: IFeaturedData["data"]["data"];
 }
 
 const ContentSlider = ({ data }: IProps) => {

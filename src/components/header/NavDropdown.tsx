@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 // Types
 import { ICategoriesData } from "../../types/data.types";
 import { dropdownMotion } from "../../animations/subNav.animations";
+import { Api } from "../../api/Api";
 
 interface IProps {
   dropdownOpen: boolean;
@@ -23,6 +24,7 @@ const NavDropdown = ({
   onClickLink,
   activeLink,
 }: IProps) => {
+  const language = new Api("").language;
   return (
     <motion.div
       className="nav-dropdown"
@@ -38,7 +40,11 @@ const NavDropdown = ({
               initial={"linkRest"}
               animate={activeLink === 0 ? "linkActive" : "linkRest"}
             >
-              Главная
+              {language === "EN"
+                ? "Home"
+                : language === "RU"
+                ? "Главная"
+                : "Esasy sahypa"}
             </motion.span>
           </Link>
         </li>
