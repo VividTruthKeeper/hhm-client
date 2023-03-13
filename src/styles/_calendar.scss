@@ -1,6 +1,7 @@
 .calendar {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .react-calendar__navigation__label {
@@ -103,6 +104,25 @@
   border-radius: 0;
   abbr {
     width: 100%;
+  }
+}
+
+.calendar-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: $main;
+  padding: 1.6rem;
+  color: $white;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-radius: 0.8rem;
+
+  .calendar-popup-item {
+    font-weight: 400;
+    font-size: 1.6rem;
   }
 }
 
