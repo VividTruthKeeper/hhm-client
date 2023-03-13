@@ -1,5 +1,4 @@
 // Modules
-import { SetStateAction } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Components
@@ -8,6 +7,7 @@ import Pagination from "./Pagination";
 
 // Types
 import { INewPostsData } from "../../types/posts.types";
+import Loader from "./Loader";
 
 interface IProps {
   data: INewPostsData;
@@ -27,11 +27,12 @@ const CustomNewsScroll = ({
   pageMemo,
   avoidFirst,
 }: IProps) => {
+  console.log(data);
   return (
     <div className="news-scroll">
       <div className="news-scroll-wrapper">
         <div className="news-scroll-inner">
-          {data?.data[0].id > -1 ? (
+          {data ? (
             data.data.map((dataEl, index) => {
               if (avoidFirst) {
                 if (index > 0) {
@@ -68,7 +69,7 @@ const CustomNewsScroll = ({
           )}
         </div>
         {pagination ? (
-          data?.data[0].id > -1 ? (
+          data ? (
             <Pagination
               pages={data?.meta.total}
               activePage={pageMemo.activePage}
