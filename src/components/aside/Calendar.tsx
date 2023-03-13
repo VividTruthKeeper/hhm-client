@@ -14,8 +14,8 @@ const Calendar = () => {
   const [value, onChange] = useState(new Date());
 
   const [data, setData] = useState<any>();
+  const [popup, setPopup] = useState<boolean>(false);
   const ref = useRef<boolean>(false);
-  const popupRef = useRef<HTMLDivElement>(null);
 
   const valueMemo = useMemo(() => ({ value, onChange }), [value, onChange]);
   const dataMemo = useMemo(() => ({ data, setData }), [data, setData]);
@@ -35,34 +35,37 @@ const Calendar = () => {
     if (!ref.current) {
       ref.current = true;
       console.log(dataMemo.data);
+      setPopup(false);
       return;
     }
-    console.log(dataMemo.data);
     api.get(dataMemo.data, dataMemo.setData);
+    setPopup(true);
   }, [value]);
 
   return (
     <div className="calendar">
-      <div className="calendar-popup" ref={popupRef}>
-        {data ? (
-          // data.map((el: any, index: number) => (
-          //   <div className="calendar-popup-item" key={uuiv4()}>
-          //     <p>{el.title}</p>
-          //   </div>
-          // ))
-          data[0] ? (
-            <div className="calendar-popup-item" key={uuiv4()}>
-              <p>{data[0].title}</p>
-            </div>
+      {popup ? (
+        <div className={popup ? 'calendar-popup calendar-popup-active' : 'calendar-popup'}>
+          {data ? (
+            // data.map((el: any, index: number) => (
+            //   <div className="calendar-popup-item" key={uuiv4()}>
+            //     <p>{el.title}</p>
+            //   </div>
+            // ))
+            data[0] ? (
+              <div className="calendar-popup-item" key={uuiv4()}>
+                <p>{data[0].title}</p>
+              </div>
+            ) : (
+              <div className="calendar-popup-item" key={uuiv4()}>
+                <p>Нет событий</p>
+              </div>
+            )
           ) : (
-            <div className="calendar-popup-item" key={uuiv4()}>
-              <p>Нет событий</p>
-            </div>
-          )
-        ) : (
-          <Loader />
-        )}
-      </div>
+            <Loader />
+          )}
+        </div>
+      ) : null}
       <LazyLoadComponent useIntersectionObserver>
         <ReactCalendar value={value} onChange={valueMemo.onChange} />
       </LazyLoadComponent>

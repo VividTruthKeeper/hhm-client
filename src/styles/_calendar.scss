@@ -110,7 +110,7 @@
 .calendar-popup {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: -20%;
   background: $main;
   padding: 1.6rem;
   color: $white;
@@ -119,11 +119,16 @@
   flex-direction: column;
   gap: 0.8rem;
   border-radius: 0.8rem;
+  display: none;
 
   .calendar-popup-item {
     font-weight: 400;
     font-size: 1.6rem;
   }
+}
+
+.calendar-popup-active {
+  display: block;
 }
 
 @media (max-width: 1024px) {
